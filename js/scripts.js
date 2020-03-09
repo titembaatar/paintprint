@@ -131,7 +131,6 @@ function svgChange() {
   var layerActive = $("#layer button.active").val()
   var patternActive = $("#pattern button.active").val()
   var colorActive = $("#color button.active").val()
-  var svgLayer = layerActive - 1;
   var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
 
   for(var i=0; i<color.length; i++){
@@ -143,12 +142,13 @@ function svgChange() {
   if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
     $("#color button.active").removeClass("active")
     $(":button[value=black]").addClass("active")
-    buttonColor()
     $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svgblack").show()
-  } else if (!$(":button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
+    buttonColor()
+  } else if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
     $("#color button.active").removeClass("active")
     $(":button[value=white]").addClass("active white")
     $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svgwhite").show()
+    buttonColor()
   } else {
     $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svg"+colorActive).show()
   };
@@ -386,4 +386,5 @@ $(document)
     $(":button[id=print]")
       .click(load)
       .click(printIt);
-  });
+    });
+    
