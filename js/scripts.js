@@ -399,5 +399,6 @@ $(document)
       .click(printIt);
 
     $("#mobilePrint button")
+      .click(load)
       .click(mobilePrint);
     });
