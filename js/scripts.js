@@ -268,12 +268,6 @@ function printFormShow(){
   $("#printForm").show()
 }
 
-function printIt(){
-  window.print()
-
-  resetPrint()
-}
-
 function resetPrint() {
   var LR = ["l", "r"]
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
@@ -299,6 +293,15 @@ function resetPrint() {
       }
     }
   }
+}
+
+function printIt(){
+  setTimeout(function(){
+    window.print()
+    resetPrint()
+  }
+    ,100
+  )
 }
 
 function load() {
@@ -393,5 +396,6 @@ $(document)
 
     $(":button[id=print]")
       .click(load)
-      .click(printFormShow);
+      .click(printFormShow)
+      .click(printIt);
     });
