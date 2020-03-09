@@ -408,4 +408,5 @@ $(document)
 
     $(":button[id=getBack]")
       .click(getBack)
+      .click(getShopCookie);
     });
