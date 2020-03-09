@@ -1,0 +1,418 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: YuGo;
+  src: url("../font/yugothib.ttf")
+}
+
+body {
+  font-family: YuGo, YuGothic, Meiryo;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MENUS */
+
+#shops, #jeans {
+  z-index: 20;
+}
+
+#pocket, #layer, #pattern, #color {
+  display: flex;
+  justify-content: center;
+}
+
+#pocket button, #layer button, #pattern button, #color button {
+  margin: .3em .15em 0 .15em;
+}
+
+.svgContainer{
+  display: flex;
+}
+
+#pocket, #layer{
+  width: 50%;
+}
+
+.ajinolimited{
+  display: none;
+}
+
+/* OPTIONS BUTTON */
+button:disabled{
+  background-color: #bbb!important;
+  color: #eee!important;
+}
+
+/* COLORS */
+.ajino {
+  color: #eee !important;
+  background-color: #0072bc !important
+}
+
+.okayama {
+  color: #eee !important;
+  background-color: #0db14b !important
+}
+
+.aoyama {
+  color: #eee !important;
+  background-color: #58595b !important
+}
+
+.koenji {
+  color: #eee !important;
+  background-color: #903f98 !important
+}
+
+.osaka {
+  color: #111 !important;
+  background-color: #fff200 !important
+}
+
+.kyoto {
+  color: #eee !important;
+  background-color: #684927 !important
+}
+
+.web {
+  color: #eee !important;
+  background-color: #FA8E43 !important;
+}
+
+.momoshop{
+  color: #111 !important;
+  background-color: #D3C6A6 !important
+}
+
+.white {
+  color: #ffffff !important;
+  background-color: #ffffff !important;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #111;
+  -moz-box-shadow: inset 0px 0px 0px 1px #111;
+  box-shadow: inset 0px 0px 0px 1px #111
+}
+
+.red {
+  color: #E60013 !important;
+  background-color: #E60013 !important
+}
+
+.pink {
+  color: #E23688 !important;
+  background-color: #E23688 !important
+}
+
+.pearl {
+  color: #F1AEC3 !important;
+  background-color: #F1AEC3 !important
+}
+
+.gold {
+  color: #ECE95D !important;
+  background-color: #ECE95D !important
+}
+
+.black {
+  color: #000000 !important;
+  background-color: #000000 !important
+}
+
+.font-ajino {
+  color: #0072bc !important
+}
+
+.font-okayama {
+  color: #0db14b !important
+}
+
+.font-aoyama {
+  color: #58595b !important
+}
+
+.font-koenji {
+  color: #903f98 !important
+}
+
+.font-osaka {
+  color: #fff200 !important;
+  text-shadow: 0px 0px 1px #333;
+}
+
+.font-kyoto {
+  color: #684927 !important
+}
+
+.font-web {
+  color: #FA8E43 !important;
+}
+
+.font-momoshop {
+  color: #D3C6A6 !important;
+  text-shadow: 0px 0px 1px #333;
+}
+
+.font-black {
+  color: #000000 !important
+}
+
+/* IMAGES */
+#rP, #lP{
+  padding: 16px;
+  max-width: 49.999999%;
+}
+
+.svgundefined{
+  fill: rgba(255,255,255,0.0);
+}
+
+.svgwhite {
+  fill: #fff;
+}
+
+.svgred {
+  fill: #EB3228;
+}
+
+.svgpink {
+  fill: #F26284;
+}
+
+.svgpearl {
+  fill: #F597A5;
+}
+
+.svggold {
+  fill: #E4DE31;
+}
+
+.svgblack {
+  fill: #000;
+}
+
+.svgajino {
+  fill: #0072BC;
+}
+
+.svgokayama {
+  fill: #0DB14B;
+}
+
+.svgaoyama {
+  fill: #58595B;
+}
+
+.svgkoenji {
+  fill: #903F98;
+}
+
+.svgosaka {
+  fill: #FFF200;
+}
+
+.svgkyoto {
+  fill: #684927;
+}
+
+.svgweb {
+  fill: #FA8E43;
+}
+
+.svgmomoshop {
+  fill: #D3C6A6;
+}
+
+
+/* PRINT FORM */
+@media print{@page {size: landscape}}
+@media print {
+  header, .pocketmenu, #pattern, #color, .svgContainer {
+    display: none;
+  }
+  #printForm, #printForm * {
+    visibility: visible;
+  }
+  #printForm {
+    display: block;
+    height: 200mm;
+    width: 297mm;
+  }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px){
+  @page {size: landscape}
+  @media print {
+    header, .pocketmenu, #pattern, #color, .svgContainer {
+      display: none;
+    }
+    #printForm, #printForm * {
+      visibility: visible;
+    }
+    #printForm {
+      height: 200mm;
+      width: 297mm;
+    }
+  }
+}
+
+#printForm {
+  height: 200mm;
+  width: 297mm;
+}
+
+.fill-height {
+  min-height: 99%;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+<<<<<<< HEAD
+#title, #head, #lPockets, #rPockets, .column {
+=======
+#hat, #head, #lPockets, #rPockets,　#stamp, .column {
+>>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
+  min-height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+#hat, #head, #lPockets, #rPockets, #stamp {
+  flex-direction: row;
+}
+
+#hat {
+  max-height: 15mm;
+  background-color: #555;
+  color: white;
+  justify-content: center;
+  font-size: 2em;
+}
+
+#lPockets, #rPockets {
+  max-height: 85mm;
+}
+
+#title {
+  max-height: 15mm;
+  background-color: #777777;
+  color: #fff;
+}
+
+.column {
+  flex-direction: column;
+}
+
+#title, .line {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  text-align: center;
+}
+
+<<<<<<< HEAD
+#title p{
+  margin: auto;
+  font-size: x-large;
+}
+
+.line span {
+=======
+#hat span, .line span {
+>>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
+  min-height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.line div {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#head, .line div, #rPockets div, #lPockets div, #stamp div {
+  border-style: solid;
+  border-width: thin;
+}
+
+#rPockets div, #lPockets div {
+  padding: .5em;
+}
+
+#rPockets p, #lPockets p {
+  margin: .3em;
+}
+
+#rPockets svg, #lPockets svg {
+  max-width: 90%;
+  margin: 0 5%;
+}
+
+<<<<<<< HEAD
+#table {
+  width: 45mm;
+  border-spacing: 0;
+  border-style: solid;
+  border-width: thin;
+}
+
+#table tr.tableText {
+  height: 5mm;
+  font-size: .8em;
+}
+
+#table tr.tableVoid {
+  height: 10mm;
+}
+
+#table th {
+  border-style: solid;
+  border-width: thin;
+=======
+#stamp .stamptext {
+  height: 4mm;
+  width: 12mm;
+  font-size: x-small;
+  text-align: center;
+}
+
+#stamp .stampbox {
+  height: 6mm;
+  width: 12mm;
+>>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
+}
+
+.gg-check-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    border-radius: 4px;
+    float: left;
+    margin-right: 1em
+}
+.gg-check-r::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    width: 6px;
+    height: 10px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    transform-origin: bottom left;
+    transform: rotate(45deg)
+}
+
+.pocketText{
+  writing-mode: vertical-rl;
+  text-align: center;
+}
