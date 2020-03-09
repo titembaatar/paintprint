@@ -298,7 +298,7 @@ function resetPrint() {
 function printIt(){
   setTimeout(function(){
     window.print()
-  }, 00)
+  }, 100)
   setTimeout(function(){
     resetPrint()
   }, 200)
