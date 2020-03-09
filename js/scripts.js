@@ -354,7 +354,6 @@ $(document)
     var btn2 = "#pattern button, #color button"
 
     $(btn)
-      .click(getShopCookie)
       .click(activeButton)
       .click(shopColor)
       .click(button0Disabled)
