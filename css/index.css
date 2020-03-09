@@ -225,18 +225,18 @@ button:disabled{
 
 
 /* PRINT FORM */
-@media print{@page {size: landscape}}
-@media print {
-  header, .pocketmenu, #pattern, #color, .svgContainer {
-    display: none;
-  }
-  #printForm, #printForm * {
-    visibility: visible;
-  }
-  #printForm {
-    display: block;
-    height: 200mm;
-    width: 297mm;
+@media print{
+  @page {size: landscape}
+    header, .pocketmenu, #pattern, #color, .svgContainer {
+      display: none;
+    }
+    #printForm, #printForm * {
+      visibility: visible;
+    }
+    #printForm {
+      display: block;
+      height: 200mm;
+      width: 297mm;
   }
 }
 
@@ -252,9 +252,9 @@ and (max-device-width: 1024px){
       visibility: visible;
     }
     #printForm {
+      display: block;
       height: 200mm;
       width: 297mm;
-      display: block;
     }
   }
 }
@@ -262,6 +262,7 @@ and (max-device-width: 1024px){
 #printForm {
   height: 200mm;
   width: 297mm;
+  display: none;
 }
 
 .fill-height {
@@ -277,16 +278,8 @@ and (max-device-width: 1024px){
   flex: 1;
 }
 
-#hat, #head, #lPockets, #rPockets, #stamp {
+#head, #lPockets, #rPockets, #stamp {
   flex-direction: row;
-}
-
-#hat {
-  max-height: 15mm;
-  background-color: #555;
-  color: white;
-  justify-content: center;
-  font-size: 2em;
 }
 
 #lPockets, #rPockets {
