@@ -131,6 +131,7 @@ function svgChange() {
   var layerActive = $("#layer button.active").val()
   var patternActive = $("#pattern button.active").val()
   var colorActive = $("#color button.active").val()
+  var svgLayer = layerActive - 1
   var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
 
   for(var i=0; i<color.length; i++){
