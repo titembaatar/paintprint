@@ -299,9 +299,15 @@ function printIt(){
   setTimeout(function(){
     window.print()
     resetPrint()
-  }
-    ,100
-  )
+  }, 100)
+  setTimeout(function(){
+    $("header").show()
+    $(".pocketmenu").show()
+    $("#pattern").show()
+    $("#color").show()
+    $(".svgContainer").show()
+    $("#printForm").hide()
+  }, 100)
 }
 
 function load() {
