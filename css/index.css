@@ -225,40 +225,6 @@ button:disabled{
 
 
 /* PRINT FORM */
-@media print{
-  @page {size: landscape}
-    header, .pocketmenu, #pattern, #color, .svgContainer {
-      display: none;
-    }
-    #printForm, #printForm * {
-      visibility: visible;
-    }
-    #printForm {
-      display: block;
-      height: 200mm;
-      width: 297mm;
-  }
-}
-
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px){
-  @page {size: landscape}
-  @media print {
-    header, .pocketmenu, #pattern, #color, .svgContainer {
-      display: none;
-    }
-    #printForm, #printForm * {
-      visibility: visible;
-    }
-    #printForm {
-      display: block;
-      height: 200mm;
-      width: 297mm;
-    }
-  }
-}
-
 #printForm {
   height: 200mm;
   width: 297mm;
