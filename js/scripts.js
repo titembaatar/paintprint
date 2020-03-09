@@ -343,6 +343,16 @@ function date() {
   $(".date").append(year + '　年　' + month + '　月　' + day + '　日')
 }
 
+function mobilePrint(){
+  $("header").hide()
+  $(".pocketmenu").hide()
+  $("#pattern").hide()
+  $("#color").hide()
+  $(".svgContainer").hide()
+  $("#printForm").show()
+  window.print()
+}
+
 $(document)
   .ready(getShopCookie)
   .ready(button0Disabled)
@@ -387,5 +397,7 @@ $(document)
     $(":button[id=print]")
       .click(load)
       .click(printIt);
+
+    $(":button[id=mobilePrint")
+      .click(mobilePrint);
     });
-    
