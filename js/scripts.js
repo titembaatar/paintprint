@@ -359,6 +359,7 @@ function getBack(){
   $(".svgContainer").show()
   $("#printForm").hide()
 }
+
 $(document)
   .ready(getShopCookie)
   .ready(button0Disabled)
