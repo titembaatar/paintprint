@@ -1,3 +1,16 @@
+(function($) {
+  $.fn.invisible = function() {
+      return this.each(function() {
+          $(this).css("visibility", "hidden");
+      });
+  };
+  $.fn.visible = function() {
+      return this.each(function() {
+          $(this).css("visibility", "visible");
+      });
+  };
+}(jQuery));
+
 function activeButton() {
   $(this).toggleClass("active").siblings().removeClass('active')
 }
@@ -311,10 +324,10 @@ function load() {
 
       if ($("#"+LR[j]+"P .z"+[i])[0]) {
         $("#"+LR[j]+"P .z"+[i]).clone().appendTo("#"+LR[j]+"Pockets .svgPrint"+[i])
-        $("#"+LR[j]+"Pockets .zshow"+[i]).show()
+        $("#"+LR[j]+"Pockets .zshow"+[i]).visible()
         paintCounter = paintCounter + 1
       } else {
-        $("#"+LR[j]+"Pockets .zshow"+[i]).hide()
+        $("#"+LR[j]+"Pockets .zshow"+[i]).invisible()
       }
 
       for (var h = 0; h < pattern.length; h++) {
