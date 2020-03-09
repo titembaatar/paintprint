@@ -283,7 +283,7 @@ and (max-device-width: 1024px){
 }
 
 #lPockets, #rPockets {
-  max-height: 85mm;
+  max-height: 70mm;
 }
 
 #title {
@@ -333,7 +333,7 @@ and (max-device-width: 1024px){
 }
 
 #rPockets svg, #lPockets svg {
-  max-width: 90%;
+  max-height: 40mm;
   margin: 0 5%;
 }
 
@@ -345,12 +345,12 @@ and (max-device-width: 1024px){
 }
 
 #table tr.tableText {
-  height: 5mm;
+  height: 4mm;
   font-size: .8em;
 }
 
 #table tr.tableVoid {
-  height: 10mm;
+  height: 8mm;
 }
 
 #table th {
