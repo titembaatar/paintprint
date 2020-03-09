@@ -274,12 +274,8 @@ function resetPrint() {
   var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブルー", "グリーン", "グレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
   var shop = $("#shopText").html();
 
-<<<<<<< HEAD
-  $(".paintCounter").html("")
-=======
   $(".printFromShop").html("");
   $(".paintCounter").html("");
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
 
   for (var j = 0; j < LR.length; j++) {
     for (var i = 1; i < 5; i++) {
@@ -300,20 +296,13 @@ function resetPrint() {
 function load() {
   var LR = ["l", "r"]
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
-<<<<<<< HEAD
-  var patternText = ["#SP", "#IC", "#SP-KA", "#SP-MT", "#MT", "#ONI", "#JI", "#KA", "#MO"]
+  var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
   var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
   var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブラック", "ブルー", "グリーン", "グレー", "パープル", "イエロー", "ブラウン", "オレンジ", "ライトグレー"]
   var paintCounter = 0
-=======
-  var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
-  var color = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブルー", "グリーン", "グレー", "パープル", "イエロー", "ブラウン", "オレンジ", "ライトグレー"]
-  var paintCounter = 0;
-  var shop = $("#shopText").html();
+  var shop = $("#shopText").html()
 
-  $(".printFromShop").append(shop+"・");
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
+  $(".printFromShop").append(shop+"・")
 
   for (var j = 0; j < LR.length; j++) {
     for (var i = 1; i < 5; i++) {
@@ -328,11 +317,7 @@ function load() {
 
       for (var h = 0; h < pattern.length; h++) {
         if ($("#"+LR[j]+"P .z"+[i]).hasClass(pattern[h])) {
-<<<<<<< HEAD
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").append(patternText[h])
-=======
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").append("D/"+patternText[h]);
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
+          $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").append("D/"+patternText[h])
         }
       }
 
@@ -354,7 +339,7 @@ function date() {
   var day = dateObj.getUTCDate()
   var year = dateObj.getUTCFullYear()
 
-  $(".date").append(year + '　年　' + month + '　月　' + day + '　日');
+  $(".date").append(year + '　年　' + month + '　月　' + day + '　日')
 }
 
 $(document)
@@ -401,11 +386,5 @@ $(document)
 
     $(":button[id=print]")
       .click(load)
-<<<<<<< HEAD
       .click(printIt)
   })
-=======
-      .click(printIt);
-
-    });
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae

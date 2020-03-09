@@ -270,11 +270,7 @@ and (max-device-width: 1024px){
   padding: 2em;
 }
 
-<<<<<<< HEAD
 #title, #head, #lPockets, #rPockets, .column {
-=======
-#hat, #head, #lPockets, #rPockets,　#stamp, .column {
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
   min-height: 100%;
   display: flex;
   flex: 1;
@@ -313,16 +309,12 @@ and (max-device-width: 1024px){
   text-align: center;
 }
 
-<<<<<<< HEAD
 #title p{
   margin: auto;
   font-size: x-large;
 }
 
 .line span {
-=======
-#hat span, .line span {
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
   min-height: 100%;
   display: inline-flex;
   align-items: center;
@@ -351,7 +343,6 @@ and (max-device-width: 1024px){
   margin: 0 5%;
 }
 
-<<<<<<< HEAD
 #table {
   width: 45mm;
   border-spacing: 0;
@@ -371,18 +362,6 @@ and (max-device-width: 1024px){
 #table th {
   border-style: solid;
   border-width: thin;
-=======
-#stamp .stamptext {
-  height: 4mm;
-  width: 12mm;
-  font-size: x-small;
-  text-align: center;
-}
-
-#stamp .stampbox {
-  height: 6mm;
-  width: 12mm;
->>>>>>> 7876a90e2280d67cdcb74168d7b3f4cfdcf504ae
 }
 
 .gg-check-r {
