@@ -300,14 +300,6 @@ function printIt(){
     window.print()
     resetPrint()
   }, 100)
-  setTimeout(function(){
-    $("header").show()
-    $(".pocketmenu").show()
-    $("#pattern").show()
-    $("#color").show()
-    $(".svgContainer").show()
-    $("#printForm").hide()
-  }, 100)
 }
 
 function load() {
@@ -359,6 +351,14 @@ function date() {
   $(".date").append(year + '　年　' + month + '　月　' + day + '　日')
 }
 
+function getBack(){
+  $("header").show()
+  $(".pocketmenu").show()
+  $("#pattern").show()
+  $("#color").show()
+  $(".svgContainer").show()
+  $("#printForm").hide()
+}
 $(document)
   .ready(getShopCookie)
   .ready(button0Disabled)
@@ -404,4 +404,7 @@ $(document)
       .click(load)
       .click(printFormShow)
       .click(printIt);
+
+    $(":button[id=getBack]")
+      .click(getBack)
     });

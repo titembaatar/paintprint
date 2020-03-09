@@ -269,9 +269,14 @@ button:disabled{
   text-align: center;
 }
 
-#title p{
+#title p, #title a{
   margin: auto;
   font-size: x-large;
+}
+
+#title a{
+  text-decoration: none;
+  color: #fff;
 }
 
 .line span {
