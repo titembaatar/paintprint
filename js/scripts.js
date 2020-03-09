@@ -259,13 +259,16 @@ function getShopCookie(){
 
 }
 
-function printIt(){
+function printFormShow(){
   $("header").hide()
   $(".pocketmenu").hide()
   $("#pattern").hide()
   $("#color").hide()
   $(".svgContainer").hide()
   $("#printForm").show()
+}
+
+function printIt(){
   window.print()
 
   resetPrint()
@@ -390,5 +393,5 @@ $(document)
 
     $(":button[id=print]")
       .click(load)
-      .click(printIt);
+      .click(printFormShow);
     });
