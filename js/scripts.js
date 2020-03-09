@@ -298,8 +298,10 @@ function resetPrint() {
 function printIt(){
   setTimeout(function(){
     window.print()
+  }, 00)
+  setTimeout(function(){
     resetPrint()
-  }, 100)
+  }, 200)
 }
 
 function load() {
