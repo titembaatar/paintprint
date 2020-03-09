@@ -398,6 +398,6 @@ $(document)
       .click(load)
       .click(printIt);
 
-    $(":button[id=mobilePrint")
+    $("#mobilePrint button")
       .click(mobilePrint);
     });
