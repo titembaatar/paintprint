@@ -295,15 +295,6 @@ function resetPrint() {
   }
 }
 
-function printIt(){
-  setTimeout(function(){
-    window.print()
-  }, 100)
-  setTimeout(function(){
-    resetPrint()
-  }, 200)
-}
-
 function load() {
   var LR = ["l", "r"]
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
@@ -344,6 +335,12 @@ function load() {
 
 }
 
+function printIt(){
+  setTimeout(function(){
+    window.print()
+  }, 100)
+}
+
 function date() {
   var dateObj = new Date()
   var month = dateObj.getUTCMonth() + 1
@@ -360,6 +357,7 @@ function getBack(){
   $("#color").show()
   $(".svgContainer").show()
   $("#printForm").hide()
+  resetPrint()
 }
 
 $(document)
