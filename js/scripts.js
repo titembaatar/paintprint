@@ -358,33 +358,33 @@ $(document)
       .click(activeButton)
       .click(shopColor)
       .click(button0Disabled)
-      .click(button1Disabled)
+      .click(button1Disabled);
 
     $(btn1)
-      .click(buttonColor)
+      .click(buttonColor);
 
     $(btn2)
-      .click(svgChange)
+      .click(svgChange);
 
     $("#color button")
-      .click(buttonColor)
+      .click(buttonColor);
 
     $("#shops button")
       .click(buttonColor)
       .click(svgShop)
       .click(jeansReset)
       .click(jeans)
-      .click(setShopCookie)
+      .click(setShopCookie);
 
     $("#jeans button, #reset")
-      .click(jeans)
+      .click(jeans);
 
     $("#reset")
       .click(button0Disabled)
       .click(button1Disabled)
-      .click(reset)
+      .click(reset);
 
     $(":button[id=print]")
       .click(load)
-      .click(printIt)
-  })
+      .click(printIt);
+  });
