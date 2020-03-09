@@ -254,6 +254,7 @@ and (max-device-width: 1024px){
     #printForm {
       height: 200mm;
       width: 297mm;
+      display: block;
     }
   }
 }
