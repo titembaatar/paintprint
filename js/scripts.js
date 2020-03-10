@@ -286,7 +286,7 @@ function resetPrint() {
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
   var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
   var color = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブルー", "グリーン", "グレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
+  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "味野ブルー", "マスカットグリーン", "ダークグレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
   var shop = $("#shopText").html();
 
   $(".printFromShop").html("");
@@ -313,7 +313,7 @@ function load() {
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
   var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
   var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブラック", "ブルー", "グリーン", "グレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
+  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブラック", "味野ブルー", "マスカットグリーン", "ダークグレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
   var paintCounter = 0
   var shop = $("#shopText").html()
 
