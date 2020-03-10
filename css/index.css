@@ -235,8 +235,8 @@ button:disabled{
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   position: absolute;
-  top: 40mm;
-  left: 0;
+  top: 44mm;
+  left: -44mm;
 }
 
 .fill-height {
@@ -257,13 +257,17 @@ button:disabled{
 }
 
 #lPockets, #rPockets {
-  max-height: 70mm;
+  max-height: 75mm;
 }
 
 #title {
   max-height: 15mm;
   background-color: #777777;
   color: #fff;
+}
+
+#head{
+  max-height: 33mm;
 }
 
 .column {
