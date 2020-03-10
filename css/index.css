@@ -226,9 +226,17 @@ button:disabled{
 
 /* PRINT FORM */
 #printForm {
-  height: 209;
+  height: 209mm;
   width: 297mm;
   display: none;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  position: absolute;
+  top: 40mm;
+  left: 0;
 }
 
 .fill-height {
