@@ -312,7 +312,7 @@ button:disabled{
 }
 
 #rPockets div, #lPockets div {
-  padding: .5em;
+  padding: 0 .5em;
 }
 
 #rPockets p, #lPockets p {
@@ -320,7 +320,7 @@ button:disabled{
 }
 
 #rPockets svg, #lPockets svg {
-  max-height: 40mm;
+  max-height: 50mm;
   margin: 0 5%;
 }
 

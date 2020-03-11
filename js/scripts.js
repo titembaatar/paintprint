@@ -181,7 +181,7 @@ function svgShop() {
   var layerActive = $("#layer button.active").val()
   var shopColor = ["ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
 
-  for (var i=1; i<5; i++){
+  for (var i=1; i<4; i++){
     for (var j=0; j<shopColor.length; j++){
       if ($(".z"+ i ).hasClass("svg"+shopColor[j])){
         $(".z"+ i ).removeClass("svg"+shopColor[j]).addClass("svg"+shopActive)
@@ -198,7 +198,7 @@ function reset() {
   var btn0 = "#pocket button, #layer button"
   var c = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
 
-  for(var j=1; j<5; j++){
+  for(var j=1; j<4; j++){
     for(var i=0; i<c.length; i++){
       $(".z"+[j]).removeClass("svg"+c[i])
     }
@@ -293,7 +293,7 @@ function resetPrint() {
   $(".paintCounter").html("");
 
   for (var j = 0; j < LR.length; j++) {
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 4; i++) {
       for (var h = 0; h < pattern.length; h++) {
         if ($("#"+LR[j]+"P .z"+[i]).hasClass(pattern[h])) {
           $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").html("")
@@ -320,7 +320,7 @@ function load() {
   $(".printFromShop").append(shop+"・")
 
   for (var j = 0; j < LR.length; j++) {
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 4; i++) {
 
       if ($("#"+LR[j]+"P .z"+[i])[0]) {
         $("#"+LR[j]+"P .z"+[i]).clone().appendTo("#"+LR[j]+"Pockets .svgPrint"+[i])
@@ -360,7 +360,7 @@ function date() {
   var day = dateObj.getUTCDate()
   var year = dateObj.getUTCFullYear()
 
-  $(".date").append(year + '　年　' + month + '　月　' + day + '　日')
+  $(".date").append(year + '年　' + month + '月　' + day + '日')
 }
 
 function getBack(){
