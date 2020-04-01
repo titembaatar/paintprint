@@ -7,42 +7,94 @@
 
 body {
   font-family: YuGo, YuGothic, Meiryo;
-  height:100%;
+  height:100vh;
+  margin: 0;
+}
+
+section{
+  background: #f1f3f6;
+}
+
+/* FLEX BOXES */
+
+header{
+  background: #f1f3f6!important;
+  padding: .5em;
+  margin: .4em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;  
+  align-items: center;
 }
 
-/* MENUS */
-
-#shops, #jeans {
-  z-index: 20;
+header span {
+  margin-left: auto;
 }
 
-#pocket, #layer, #pattern, #color {
+section {
   display: flex;
-  justify-content: center;
+  flex-flow: column;
+  height: 100vh;
 }
 
-#pocket button, #layer button, #pattern button, #color button {
-  margin: .3em .15em 0 .15em;
-}
-
-.svgContainer{
+#pocketlayer, #svgContainer {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-#pocket, #layer{
-  width: 50%;
+#pocket, #layer, #color, #pattern {
+  justify-content: space-around;
+  margin-top: 1vh;
 }
 
-.ajinolimited{
-  display: none;
+#svgContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 60px;
 }
+
+#svgContainer svg{
+  max-height: -webkit-fill-available;
+}
+
+#lP, #rP {
+  max-width: 49.999999%;
+  padding: 2em;
+}
+
 
 /* OPTIONS BUTTON */
-button:disabled{
-  background-color: #bbb!important;
-  color: #eee!important;
+
+header, .w3-dropdown-hover, #reset, #print, #pocketlayer button, #pattern button, #color button {
+  color: #111;
+  box-shadow:   inset 0 0 4px rgba(55, 84, 170,0),
+                inset 0 0 5px rgba(255, 255, 255,0),
+                2px 2px 4px rgba(55, 84, 170,.15),
+                -2px -2px 5px rgba(255, 255, 255,1),
+                inset 0px 0px 1px rgba(255, 255, 255,.2);
+  background: #f1f3f6;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  transition: box-shadow 1000ms ease-in-out;
+  transition: color 199ms ease-in-out;
+}
+
+.w3-dropdown-hover:hover, #pocketlayer button.active, #pattern button.active, #color button.active {
+  outline: 0;
+  box-shadow: 
+    inset 2px 2px 4px rgba(55, 84, 170,.15),
+    inset -2px -2px 5px rgba(255, 255, 255,1),
+    0px 0px 1px rgba(255, 255, 255,.2);
+}
+
+.w3-dropdown-hover:focus, #pocketlayer button:focus, #pattern button:focus, #color button:focus {
+  outline:0;
+}
+
+.w3-dropdown-hover:hover, #pocketlayer button:hover, #pattern button:hover, #color button:hover, w3-button:hover {
+  background: transparent!important;
+  color: none!important;
 }
 
 /* COLORS */
@@ -120,19 +172,19 @@ button:disabled{
 }
 
 .font-ajino {
-  color: #0072bc !important
+  color: #0072bc !important;
 }
 
 .font-okayama {
-  color: #0db14b !important
+  color: #0db14b !important;
 }
 
 .font-aoyama {
-  color: #58595b !important
+  color: #58595b !important;
 }
 
 .font-koenji {
-  color: #903f98 !important
+  color: #903f98 !important;
 }
 
 .font-osaka {
@@ -141,7 +193,7 @@ button:disabled{
 }
 
 .font-kyoto {
-  color: #684927 !important
+  color: #684927 !important;
 }
 
 .font-web {
@@ -153,15 +205,31 @@ button:disabled{
   text-shadow: 0px 0px 1px #333;
 }
 
+.font-white {
+  color: #111 !important;
+}
+
+.font-red {
+  color: #E60013 !important;
+}
+
+.font-pink {
+  color: #E23688 !important;
+}
+
+.font-pearl {
+  color: #F1AEC3 !important;
+}
+
+.font-gold {
+  color: #ECE95D !important;
+}
+
 .font-black {
-  color: #000000 !important
+  color: #000000 !important;
 }
 
 /* IMAGES */
-#rP, #lP{
-  padding: 16px;
-  max-width: 49.999999%;
-}
 
 .svgundefined{
   fill: rgba(255,255,255,0.0);

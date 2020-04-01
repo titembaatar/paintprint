@@ -16,20 +16,19 @@ function activeButton() {
 }
 
 function shopColor() {
-  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop"
-  var fontShop = "font-ajino font-okayama font-aoyama font-koenji font-osaka font-kyoto font-web font-momoshop"
-  var shopActiveValue = $("#shops button.active").val()
+  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop undefined"
+  var shopActive = $("#shops button.active").val()
   var shopActiveText = $("#shops button.active").html()
-  var shopActive = $("#shops button").hasClass("active")
+  var active = $("#shops button").hasClass("active")
 
-  if (shopActive) {
-    $("header").removeClass("w3-black " + shop).addClass(shopActiveValue)
+  if (active) {
     $("#shopText").html(shopActiveText)
-    $("#shopText").removeClass("font-black "+fontShop).addClass("font-"+shopActiveValue)
+    $("#shopText").removeClass(`font-black font-${shop}`).addClass(`font-${shopActive}`)
+    $("#mtj").removeClass(`font-black font-${shop}`).addClass(`font-${shopActive}`)
   } else {
-    $("header").removeClass(shop).addClass("w3-black")
     $("#shopText").html("店舗")
-    $("#shopText").removeClass(fontShop).addClass("font-black")
+    $("#shopText").removeClass(`font-${shop}`).addClass("font-black")
+    $("#mtj").removeClass(`font-black font-${shop}`).addClass("font-black")
   }
 
   if ($("#shops button.active").val() == "ajino") {
@@ -43,17 +42,15 @@ function shopColor() {
 }
 
 function buttonColor() {
-  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop"
+  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop undefined"
   var shopActive = $("#shops button.active").val()
   var color = "white red pink pearl gold black"
   var colorActive = $("#color button.active").val()
 
-  $("#pocket button, #layer button, #pattern button").removeClass(shop)
-  $("#shopColor").removeClass(shop)
-  $("#color button").removeClass(color)
-  $("#pocket button.active, #layer button.active, #pattern button.active").addClass(shopActive)
-  $("#shopColor.active").addClass(shopActive)
-  $("#color button.active").addClass(colorActive)
+  $("#pocket button, #layer button, #pattern button, #shopColor").removeClass(`font-${shop}`)
+  $("#color button").removeClass(`font-${color}`)
+  $("#pocket button.active, #layer button.active, #pattern button.active, #shopColor.active").addClass(`font-${shopActive}`)
+  $("#color button.active").addClass(`font-${colorActive}`)
 }
 
 function jeans() {
@@ -148,31 +145,31 @@ function svgChange() {
   var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
 
   for(var i=0; i<color.length; i++){
-    $("#"+pocketActive+" .z"+layerActive).removeClass("svg"+color[i])
+    $(`#${pocketActive} .z${layerActive}`).removeClass(`svg${color[i]}`)
   }
 
-  $("#"+pocketActive+" .z"+layerActive).removeClass("z"+layerActive).hide()
+  $(`#${pocketActive} .z${layerActive}`).removeClass(`z${layerActive}`).hide()
 
   if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
     $("#color button.active").removeClass("active")
     $(":button[value=black]").addClass("active")
-    $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svgblack").show()
+    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svgblack`).show()
     buttonColor()
   } else if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
     $("#color button.active").removeClass("active")
     $(":button[value=white]").addClass("active white")
-    $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svgwhite").show()
+    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svgwhite`).show()
     buttonColor()
   } else {
-    $("#"+pocketActive+" ."+patternActive).addClass("z"+layerActive+" svg"+colorActive).show()
+    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svg${colorActive}`).show()
   };
 
-  if ($("#"+pocketActive+" ."+patternActive).hasClass("svgshopColor")) {
-    $("#"+pocketActive+" .z"+layerActive).removeClass("svgshopColor")
-    $("#"+pocketActive+" .z"+layerActive).addClass("svg"+shopActive)
+  if ($(`#${pocketActive} .${patternActive}`).hasClass("svgshopColor")) {
+    $(`#${pocketActive} .z${layerActive}`).removeClass("svgshopColor")
+    $(`#${pocketActive} .z${layerActive}`).addClass("svg"+shopActive)
   }
 
-  $("#"+pocketActive+" .z"+layerActive).insertAfter($("#"+pocketActive+" .z"+svgLayer)).show()
+  $(`#${pocketActive} .z${layerActive}`).insertAfter($(`#${pocketActive} .z${svgLayer}`)).show()
 
 }
 
@@ -183,8 +180,8 @@ function svgShop() {
 
   for (var i=1; i<4; i++){
     for (var j=0; j<shopColor.length; j++){
-      if ($(".z"+ i ).hasClass("svg"+shopColor[j])){
-        $(".z"+ i ).removeClass("svg"+shopColor[j]).addClass("svg"+shopActive)
+      if ($(`.z${i}` ).hasClass(`svg${shopColor[j]}`)){
+        $(`.z${i}` ).removeClass(`svg${shopColor[j]}`).addClass(`svg${shopActive}`)
       }
     }
   }
@@ -200,17 +197,17 @@ function reset() {
 
   for(var j=1; j<4; j++){
     for(var i=0; i<c.length; i++){
-      $(".z"+[j]).removeClass("svg"+c[i])
+      $(`.z${[j]}`).removeClass(`svg${c[i]}`)
     }
 
-    $(".z"+[j]).hide().removeClass(this)
+    $(`.z${[j]}`).hide().removeClass(this)
   }
   $(".spup").css("display", "")
   $(".spdwn").css("display", "")
   $(btn0, btn1).removeClass("active")
   $(btn1).prop('disabled', true)
-  $("#pocket button, #layer button, #pattern button").removeClass(shop+" active")
-  $("#color button").removeClass(color+" active")
+  $("#pocket button, #layer button, #pattern button").removeClass(`${shop} active`)
+  $("#color button").removeClass(`${color} active`)
 }
 
 function button0Disabled(){
@@ -266,7 +263,7 @@ function setShopCookie(){
 function getShopCookie(){
   var shopCookie = Cookies.get('shop')
 
-  $("button.font-"+shopCookie).toggleClass("active")
+  $(`button.font-${shopCookie}`).toggleClass("active")
 
   shopColor()
 
@@ -295,13 +292,13 @@ function resetPrint() {
   for (var j = 0; j < LR.length; j++) {
     for (var i = 1; i < 4; i++) {
       for (var h = 0; h < pattern.length; h++) {
-        if ($("#"+LR[j]+"P .z"+[i]).hasClass(pattern[h])) {
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").html("")
+        if ($(`#${LR[j]}P .z${[i]}`).hasClass(pattern[h])) {
+          $(`#${LR[j]}Pockets .zshow${[i]} .patternCode`).html("")
         }
       }
       for (var g = 0; g < color.length; g++) {
-        if ($("#"+LR[j]+"P .z"+[i]).hasClass("svg"+color[g])) {
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .colorCode").html("")
+        if ($(`#${LR[j]}P .z${[i]}`).hasClass(`svg${color[g]}`)) {
+          $(`#${LR[j]}Pockets .zshow${[i]} .colorCode`).html("")
         }
       }
     }
@@ -317,28 +314,28 @@ function load() {
   var paintCounter = 0
   var shop = $("#shopText").html()
 
-  $(".printFromShop").append(shop+"・")
+  $(".printFromShop").append(`${shop}・`)
 
   for (var j = 0; j < LR.length; j++) {
     for (var i = 1; i < 4; i++) {
 
-      if ($("#"+LR[j]+"P .z"+[i])[0]) {
-        $("#"+LR[j]+"P .z"+[i]).clone().appendTo("#"+LR[j]+"Pockets .svgPrint"+[i])
-        $("#"+LR[j]+"Pockets .zshow"+[i]).visible()
+      if ($(`#${LR[j]}P .z${[i]}`)[0]) {
+        $(`#${LR[j]}P .z${[i]}`).clone().appendTo(`#${LR[j]}Pockets .svgPrint${[i]}`)
+        $(`#${LR[j]}Pockets .zshow${[i]}`).visible()
         paintCounter = paintCounter + 1
       } else {
-        $("#"+LR[j]+"Pockets .zshow"+[i]).invisible()
+        $(`#${LR[j]}Pockets .zshow${[i]}`).invisible()
       }
 
       for (var h = 0; h < pattern.length; h++) {
-        if ($("#"+LR[j]+"P .z"+[i]).hasClass(pattern[h])) {
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .patternCode").append("D/"+patternText[h])
+        if ($(`#${LR[j]}P .z${[i]}`).hasClass(pattern[h])) {
+          $(`#${LR[j]}Pockets .zshow${[i]} .patternCode`).append(`D/${patternText[h]}`)
         }
       }
 
       for (var g = 0; g < color.length; g++) {
-        if ($("#"+LR[j]+"P .z"+[i]).hasClass("svg"+color[g])) {
-          $("#"+LR[j]+"Pockets .zshow"+[i]+" .colorCode").append(colorText[g])
+        if ($(`#${LR[j]}P .z${[i]}`).hasClass(`svg${color[g]}`)) {
+          $(`#${LR[j]}Pockets .zshow${[i]} .colorCode`).append(colorText[g])
         }
       }
     }
@@ -360,7 +357,7 @@ function date() {
   var day = dateObj.getUTCDate()
   var year = dateObj.getUTCFullYear()
 
-  $(".date").append(year + '年　' + month + '月　' + day + '日')
+  $(".date").append(`${year}年　${month}月　${day}日`)
 }
 
 function getBack(){
