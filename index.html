@@ -16,80 +16,120 @@
 <body>
   <section>
     <header>
-      <div class="w3-dropdown-hover w3-margin-right w3-light-gray w3-mobile">
-        <button id="shopText" class="w3-button w3-large">店舗</button>
-        <div id="shops" class="w3-dropdown-content w3-bar-block w3-card-4 w3-large">
-          <button class="w3-bar-item w3-button font-ajino" value="ajino">味野本店</button>
-          <button class="w3-bar-item w3-button font-okayama" value="okayama">岡山店</button>
-          <button class="w3-bar-item w3-button font-aoyama" value="aoyama">青山店</button>
-          <button class="w3-bar-item w3-button font-koenji" value="koenji">高円寺店</button>
-          <button class="w3-bar-item w3-button font-osaka" value="osaka">大阪店</button>
-          <button class="w3-bar-item w3-button font-kyoto" value="kyoto">京都店</button>
-          <button class="w3-bar-item w3-button font-web" value="web">WEB店</button>
-          <button class="w3-bar-item w3-button font-momoshop" value="momoshop">POPUP店</button>
-        </div>
-      </div>
-
-      <div class="w3-dropdown-hover w3-margin-right w3-light-gray w3-mobile">
-        <button id="labelText" class="w3-button w3-large">出陣</button>
-        <div id="jeans" class="w3-dropdown-content w3-bar-block w3-card-4 w3-large">
-          <button class="w3-bar-item w3-button active" value="shutsujin">出陣</button>
-          <button class="w3-bar-item w3-button" value="deepdotan">特濃銅丹</button>
-          <button class="w3-bar-item w3-button" value="dotan">銅丹</button>
-          <button class="w3-bar-item w3-button" value="vintage">ヴィンテージ</button>
-          <button class="w3-bar-item w3-button" value="blkshutsujin">ブラック出陣</button>
-          <button class="w3-bar-item w3-button" value="pnkshutsujin">ピンク出陣</button>
-          <button class="w3-bar-item w3-button" value="ladiesdotan">レディース銅丹</button>
-          <button class="w3-bar-item w3-button" value="kidsshutsujin">キッズ出陣</button>
-          <button class="w3-bar-item w3-button" value="kidsdotan">キッズ銅丹</button>
-          <button class="w3-bar-item w3-button ajinolimited" value="ajinoup">AJ-SK</button>
-          <button class="w3-bar-item w3-button ajinolimited" value="ajinodwn">AJ0205</button>
-        </div>
-      </div>
-
-      <button type="button" id="reset" class="w3-bar-item w3-button w3-mobile w3-light-gray w3-large w3-margin-right">取消</button>
-  
-      <button type="button" id="print" class="w3-bar-item w3-button w3-mobile w3-light-gray w3-large w3-margin-right">印刷</button>
-  
-      <span id="mtj" class="w3-bar-item w3-mobile w3-large"><b>MOMOTARO JEANS</b></span>
-
+      <nav class="navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item has-dropdown">
+            <a id="shopLabel" class="dropdown-link shopColor" href="#">店舗</a>
+            <ul class="dropdown dd1">
+              <li class="dropdown-item">
+                <a id="ajino" href="#">味野本店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="okayama" href="#">岡山店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="aoyama" href="#">青山店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="koenji" href="#">高円寺店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="osaka" href="#">大阪店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="kyoto" href="#">京都店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="web" href="#">WEB店</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="popup" href="#">POPUP店</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a id="jeansLabel" class="dropdown-link" href="#">出陣</a>
+            <ul class="dropdown dd2">
+              <li class="dropdown-item">
+                <a id="shutsujin" href="#">出陣</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="deepdotan" href="#">特濃銅丹</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="dotan" href="#">銅丹</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="vintage" href="#">ヴィンテージ</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="pnkshutsujin" href="#">ピンク出陣</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="ladiesdotan" href="#">女性銅丹</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="kidsshutsujin" href="#">子供出陣</a>
+              </li>
+              <li class="dropdown-item">
+                <a id="kidsdotan" href="#">子供銅丹</a>
+              </li>
+              <li class="dropdown-item ajinolmtd" style="display: none;">
+                <a id="ajinoup" href="#">AJ-SK</a>
+              </li>
+              <li class="dropdown-item ajinolmtd" style="display: none;">
+                <a id="ajinodwn" href="#">AJ0205</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+          <button type="button" id="reset">取消</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" id="print">印刷</button>
+          </li>
+          <li id="MTJ">
+            <span class="shopColor"><b>MOMOTARO JEANS</b></span>
+          </li>
+        </ul>
+      </nav>
     </header>
   
-    <div id="pocketlayer" class="w3-mobile w3-container w3-center w3-row pocketmenu">
-      <div id="pocket" class="w3-left">
-        <button type="button" class="w3-button  w3-large" value="lP">左</button>
-        <button type="button" class="w3-button  w3-large" value="rP">右</button>
+    <div id="pocketlayer">
+      <div id="pocket">
+        <button type="button" value="lP">左</button>
+        <button type="button"  value="rP">右</button>
       </div>
-      <div id="layer" class="w3-right">
-        <button type="button" class="w3-button  w3-large" value="1" id="l1">1</button>
-        <button type="button" class="w3-button  w3-large" value="2">2</button>
-        <button type="button" class="w3-button  w3-large" value="3">3</button>
+      <div id="layer">
+        <button type="button" value="1" id="l1">1</button>
+        <button type="button" value="2">2</button>
+        <button type="button" value="3">3</button>
       </div>
     </div>
   
-    <div id="pattern" class="w3-row w3-mobile w3-container w3-center">
-      <button type="button" class="w3-button  w3-large kids" value="sp">出陣</button>
-      <button type="button" class="w3-button  w3-large kids" value="spka">出陣家紋</button>
-      <button type="button" class="w3-button  w3-large kids" value="spmo">出陣桃</button>
-      <button type="button" class="w3-button  w3-large kids" value="kamon">家紋</button>
-      <button type="button" class="w3-button  w3-large nokids" value="oni">鬼</button>
-      <button type="button" class="w3-button  w3-large nokids" value="momotaro">桃太郎</button>
-      <button type="button" class="w3-button  w3-large kids" value="momochan">イラスト</button>
-      <button type="button" class="w3-button  w3-large nokids" value="kanji">漢字</button>
-      <button type="button" class="w3-button  w3-large kids ic" value="ichimatsu">出陣市松</button>
+    <div id="pattern">
+      <button type="button" class="kids" value="sp">出陣</button>
+      <button type="button" class="kids" value="spka">出陣家紋</button>
+      <button type="button" class="kids" value="spmo">出陣桃</button>
+      <button type="button" class="kids" value="kamon">家紋</button>
+      <button type="button" class="nokids" value="oni">鬼</button>
+      <button type="button" class="nokids" value="momotaro">桃太郎</button>
+      <button type="button" class="kids" value="momochan">イラスト</button>
+      <button type="button" class="nokids" value="kanji">漢字</button>
+      <button type="button" class="kids ic" value="ichimatsu">出陣市松</button>
     </div>
   
-    <div id="color" class="w3-row w3-mobile w3-center w3-container">
-      <button type="button" class="w3-button  w3-large noic" value="white">ホワイト</button>
-      <button type="button" class="w3-button  w3-large noic" value="red">レッド</button>
-      <button type="button" class="w3-button  w3-large noic" value="pink">ピンク</button>
-      <button type="button" class="w3-button  w3-large noic" value="pearl">パール</button>
-      <button type="button" class="w3-button  w3-large noic" value="gold">ゴールド</button>
-      <button type="button" class="w3-button  w3-large blk ichim" value="black" style="display:None">ブラック</button>
-      <button type="button" id="shopColor" class="w3-button  w3-large ic ichim" value="shopColor">限定</button>
+    <div id="color">
+      <button type="button" id="blackBtn" class="noic" value="white">ホワイト</button>
+      <button type="button" id="redBtn" class="noic" value="red">レッド</button>
+      <button type="button" id="pinkBtn" class="noic" value="pink">ピンク</button>
+      <button type="button" id="pearlBtn" class="noic" value="pearl">パール</button>
+      <button type="button" id="goldBtn" class="noic" value="gold">ゴールド</button>
+      <button type="button" id="blackBtn" class="blk ichim" value="black" style="display:None">ブラック</button>
+      <button type="button" id="shopColor" class="ic ichim" value="shopColor">限定</button>
     </div>
   
-    <div id="svgContainer" class="w3-mobile w3-row w3-container svgContainer">
+    <div id="svgContainer" class="svgContainer">
       <div id="lP" class="w3-half">
         <svg xmlns="http://www.w3.org/2000/svg" id="paintsvg" version="1.1" viewBox="0 0 102.5 101.22">
          <path class="pocket" d="m101.35 2.6641s3.636 43.854-6.703 82.125l-43.58 16.426-43.579-16.426c-10.357-37.808-6.705-82.125-6.705-82.125z" fill="#01060c"/>
@@ -195,7 +235,7 @@
               <span>お名前</span>
             </div>
             <div class="w3-twothird">
-              <span class="w3-large w3-right">様</span>
+              <span class=" w3-right">様</span>
             </div>
           </div>
 

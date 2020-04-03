@@ -1,0 +1,399 @@
+/* THEMES VARIABLES */
+
+$colorShop: #111
+$white: #fff
+$red: #E60013
+$pink: #E23688
+$pearl: #F1AEC3
+$gold: #CFB53B
+$black: #000
+$ajino: #0072bc
+$okayama: #0db14b
+$aoyama: #58595b
+$koenji: #903f98 
+$osaka: #f1ca3a
+$kyoto: #684927
+$web: #FA8E43
+$popup: #D3C6A6
+$btnShadow: inset 0 0 4px rgba(55, 84, 170,0), inset 0 0 5px rgba(255, 255, 255,0), 2px 2px 4px rgba(55, 84, 170,.15), -2px -2px 5px rgba(255, 255, 255,1), inset 0px 0px 1px rgba(255, 255, 255,.2)
+$hoverShadow: inset 1px 1px 3vh rgba(55, 84, 170, .1), inset -1px -1px 3vh rgba(255, 255, 255, 1), 2px 2px 4px rgba(55, 84, 170,.15), -2px -2px 5px rgba(255, 255, 255,1)
+$activeShadow: inset 2px 2px 4px rgba(55, 84, 170,.15), inset -2px -2px 5px rgba(255, 255, 255,1), 0px 0px 1px rgba(255, 255, 255,.2)
+
+$shops: (ajino: $ajino, okayama: $okayama, aoyama: $aoyama, koenji: $koenji, osaka: $osaka, kyoto: $kyoto, web: $web, popup: $popup)
+$colors: (black: $black, red: $red, pink: $pink, pearl: $pearl, gold: $gold)
+
+    
+@font-face
+    font-family: YuGo
+    src: url("../font/yugothib.ttf")
+
+body
+    font-family: YuGo, YuGothic, Meiryo
+    height: 100vh
+    margin: 0
+    padding: 0
+
+ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+a
+    color: currentColor
+    text-decoration: none
+
+button, input[type="submit"], input[type="reset"]
+	background: none
+	color: inherit
+	border: none
+	padding: 0
+	font: inherit
+	cursor: pointer
+	outline: inherit
+
+nav
+    width: 100%
+
+.navbar-nav
+    display: flex
+    align-items: center
+    height: 100%
+
+section
+    background: #f1f3f6
+
+/* shopColor */
+
+.shopColor
+    color: $colorShop
+
+@each $key, $val in $shops
+    ##{$key}, .active#{$key}
+        color: $val!important
+
+    .svg#{$key}
+        fill: $val!important
+        transition: fill .25s ease, display .2s ease
+
+
+@each $key, $val in $colors
+    ##{$key}Btn
+        &:active, &.active
+            color: $val!important
+
+    .svg#{$key}
+        fill: $val!important
+        transition: fill .25s ease, display .2s ease
+
+.svgundefined
+    fill: rgba(255,255,255,0.0)
+    transition: fill .25s ease, display .2s ease
+
+
+.svgwhite
+    fill: #fff
+    transition: fill .25s ease, display .2s ease
+
+
+/* DROPDOWN */
+
+.dropdown 
+    position: absolute
+    display: flex
+    flex-direction: row
+    align-items: center
+    visibility: hidden
+    opacity: 0
+    z-index: 2
+    color: #111
+    background: #f1f3f6
+    border-radius: 5px
+    box-shadow: $btnShadow
+    border: solid #eee 1px
+    align-items: center
+
+    transition: box-shadow 499ms ease-in-out, color 499ms ease-in-out, visibility .5s ease, opacity .15s ease
+
+.dd1
+    transform: translate(-3vh, -6vh);
+
+.dd2
+    transform: translate(-14.5vh, -6vh)
+
+.has-dropdown:focus-within .dropdown
+    visibility: visible
+    opacity: 1
+    pointer-events: auto
+
+.dropdown-item
+    padding: 2vh 1.5vh
+    white-space: nowrap
+    transition: box-shadow 499ms ease-in-out
+
+
+    &:hover
+        outline: 0
+        box-shadow: $activeShadow
+        
+    &:first-child
+        padding: 2vh 1.5vh 2vh 2vh
+        border-bottom-left-radius: 5px
+        border-top-left-radius: 5px
+
+    &:last-child
+        padding: 2vh 2vh 2vh 1.5vh
+        border-bottom-right-radius: 5px
+        border-top-right-radius: 5px
+
+/* FLEX BOXES */
+
+section 
+    display: flex
+    flex-flow: column
+    height: 100vh
+
+header
+    display: flex
+    flex-direction: row  
+    align-items: center
+    background: #f1f3f6
+    border-bottom: solid #e1e3e6 1px
+    box-shadow: 2px 2px 4px rgba(55, 84, 170,.15)
+    padding: 2vh
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+
+.nav-item
+    background: #f1f3f6
+    height: 100%
+    margin-right: 2vh
+    box-shadow: $btnShadow
+    border-radius: 5px
+    border: 1px solid #eee
+    padding: 1.5vh 2vh
+    transition: box-shadow .15s ease-in-out
+
+    &:active
+        outline: 0
+        box-shadow: $activeShadow
+
+
+#MTJ
+    margin-left: auto
+
+#pocketlayer, #svgContainer 
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+
+#svgContainer 
+    display: flex
+    flex-direction: row
+    flex: 1
+    min-height: 60px
+    
+    svg
+        max-height: -webkit-fill-available
+
+
+#lP, #rP 
+    max-width: 49.999999%
+    padding: 2em
+
+/* OPTIONS BUTTON */
+
+#pocket, #layer, #pattern, #color
+    display: flex
+    justify-content: center
+    margin-top: 2vh
+
+    button
+        margin-right: 2vh
+        color: #111
+        padding: 1vh 2vh
+        box-shadow: $btnShadow
+        background: #f1f3f6
+        border-radius: 5px
+        border: 1px solid #eee
+        transition: box-shadow .15s ease-in-out, color .15s ease-in-out
+
+        &:last-child
+            margin: 0
+
+        &:hover
+            box-shadow: $hoverShadow
+
+        &:active, &.active
+            color: $colorShop
+            box-shadow: $activeShadow
+
+/* PRINT FORM */
+
+#printForm 
+    height: 209mm
+    width: 297mm
+    display: none
+    -webkit-transform: rotate(90deg)
+    -moz-transform: rotate(90deg)
+    -o-transform: rotate(90deg)
+    -ms-transform: rotate(90deg)
+    transform: rotate(90deg)
+    position: absolute
+    top: 44mm
+    left: -44mm
+
+.fill-height 
+    min-height: 99%
+    display: flex
+    flex-direction: column
+    padding: 2em
+
+#title, #head, #lPockets, #rPockets, .column 
+    min-height: 100%
+    display: flex
+    flex: 1
+
+#head, #lPockets, #rPockets 
+    flex-direction: row
+
+#lPockets, #rPockets 
+    max-height: 75mm
+
+#title 
+    max-height: 15mm
+    background-color: #777777
+    color: #fff
+
+#head
+    max-height: 33mm
+
+.column 
+    flex-direction: column
+
+.smallfont 
+    font-size: 12px
+
+#title, .line 
+    display: flex
+    flex: 1
+    flex-direction: row
+    text-align: center
+
+#title 
+    p, a
+        margin: auto
+        font-size: x-large
+    
+    a
+        text-decoration: none
+        color: #fff
+
+.line
+    span 
+        min-height: 100%
+        display: inline-flex
+        align-items: center
+
+    div 
+        padding-left: 1em
+        padding-right: 1em
+
+#head, .line div, #rPockets div, #lPockets div 
+    border-style: solid
+    border-width: thin
+
+#rPockets, #lPockets
+    div 
+        padding: 0 .5em
+
+    p
+        margin: .3em
+    
+    svg 
+        max-height: 50mm
+        margin: 0 5%
+
+#table 
+    width: 105mm
+    border-spacing: 0
+    border-style: solid
+    border-width: thin
+    
+    tr.tableText 
+        height: 4mm
+        font-size: .8em
+        align-items: center
+    
+    tr.tableVoid 
+        height: 8mm
+
+    th 
+        border-style: solid
+        border-width: thin
+
+.gg-check-r 
+    box-sizing: border-box
+    position: relative
+    display: block
+    width: 22px
+    height: 22px
+    border: 2px solid
+    transform: scale(var(--ggs,1))
+    border-radius: 4px
+    float: left
+    margin-right: 1em
+
+    &::after 
+        content: ""
+        display: block
+        box-sizing: border-box
+        position: absolute
+        left: 3px
+        top: -1px
+        width: 6px
+        height: 10px
+        border-width: 0 2px 2px 0
+        border-style: solid
+        transform-origin: bottom left
+        transform: rotate(45deg)
+
+.pocketText
+    writing-mode: vertical-rl
+    text-align: center
+
+.gg-arrow-long-left 
+    box-sizing: border-box
+    position: relative
+    display: block
+    transform: scale(var(--ggs,1))
+    border-top: 2px solid transparent
+    border-bottom: 2px solid transparent
+    box-shadow: inset 0 0 0 2px
+    width: 60mm
+    height: 6px
+
+    &::after 
+        content: ""
+        display: block
+        box-sizing: border-box
+        position: absolute
+        width: 6px
+        height: 6px
+        border-bottom: 2px solid
+        border-left: 2px solid
+        transform: rotate(45deg)
+        left: 0
+        bottom: -2px
+
+    &::before 
+        content: ""
+        display: block
+        box-sizing: border-box
+        position: absolute
+        width: 6px
+        height: 6px
+        border-bottom: 2px solid
+        border-left: 2px solid
+        transform: rotate(-135deg)
+        left: 59mm
+        bottom: -2px

@@ -11,267 +11,227 @@
   };
 }(jQuery));
 
+// DOM Elements
+
+const pocketActive = $('#pocket button.active').val()
+const layerActive = $('#layer button.active').val()
+const patternActive = $('#pattern button.active').val()
+const colorActive = $('#color button.active').val()
+
+const color = ['white', 'red', 'pink', 'pearl', 'gold', 'black']
+const shop = ['ajino', 'okayama', 'aoyama', 'koenji', 'osaka', 'kyoto', 'web', 'popup', 'undefined']
+
+const shopColorCode = new Map([
+  ['ajino', '#0072bc'],
+  ['okayama', '#0db14b'],
+  ['aoyama', '#58595b'],
+  ['koenji', '#903f98'],
+  ['osaka', '#f1ca3a'],
+  ['kyoto', '#684927'],
+  ['web', '#FA8E43'],
+  ['popup', '#D3C6A6']
+])
+
+const shopKanji = new Map([
+  ['ajino', '味野本店'],
+  ['okayama', '岡山店'],
+  ['aoyama', '青山店'],
+  ['koenji', '高円寺店'],
+  ['osaka', '大阪店'],
+  ['kyoto', '京都店'],
+  ['web', 'WEB店'],
+  ['popup', 'POPUP店']
+])
+
+const theme = localStorage.getItem('theme')
+
+if (theme){
+  $('.shopColor').css('color', shopColorCode.get(theme))
+  $('#shopLabel').html(shopKanji.get(theme))
+
+  if (theme == "ajino") {
+      $(".ajinolmtd").show()
+    } else {
+      $(".ajinolmtd").hide()
+    }
+
+}
+
+// New Functions
+
+function shopThemeSave(){
+  localStorage.setItem('theme', this.id)
+}
+
+function shopTheme() {
+  $('.dropdown-item a').removeClass('activeshop')
+  $(this).toggleClass('activeshop')
+  $('.shopColor').css('color', shopColorCode.get(this.id))
+
+  $('#shopLabel').html($(this).html())
+  
+  $.each(shop, function(_i, val){
+    $(`.active${val}`).removeClass(`active${val}`)
+    $(`.svg${val}`).removeClass(`svg${val}`)
+  })
+  $('button.active').addClass(`active${this.id}`)
+  $('#svgContainer .active').addClass(`svg${this.id}`)
+}
+
+function shopTriggers(){
+  if (this.id == 'ajino') {
+    $(".ajinolmtd").show()
+  } else {
+    $(".ajinolmtd").hide()
+  }
+
+  if (this.id != 'ajino' && $('#ajinoup, #ajinodwn').hasClass('activejeans') ){
+    $('#shutsujin').trigger('click')
+  }
+}
+
 function activeButton() {
-  $(this).toggleClass("active").siblings().removeClass('active')
-}
-
-function shopColor() {
-  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop undefined"
-  var shopActive = $("#shops button.active").val()
-  var shopActiveText = $("#shops button.active").html()
-  var active = $("#shops button").hasClass("active")
-
-  if (active) {
-    $("#shopText").html(shopActiveText)
-    $("#shopText").removeClass(`font-black font-${shop}`).addClass(`font-${shopActive}`)
-    $("#mtj").removeClass(`font-black font-${shop}`).addClass(`font-${shopActive}`)
-  } else {
-    $("#shopText").html("店舗")
-    $("#shopText").removeClass(`font-${shop}`).addClass("font-black")
-    $("#mtj").removeClass(`font-black font-${shop}`).addClass("font-black")
-  }
-
-  if ($("#shops button.active").val() == "ajino") {
-    $("#jeans button.ajinolimited").show()
-    $("#jeans button.ajinolimited").show()
-  } else {
-    $("#jeans .ajinolimited").hide()
-    $("#jeans .ajinolimited").hide()
-  }
-
-}
-
-function buttonColor() {
-  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop undefined"
-  var shopActive = $("#shops button.active").val()
-  var color = "white red pink pearl gold black"
-  var colorActive = $("#color button.active").val()
-
-  $("#pocket button, #layer button, #pattern button, #shopColor").removeClass(`font-${shop}`)
-  $("#color button").removeClass(`font-${color}`)
-  $("#pocket button.active, #layer button.active, #pattern button.active, #shopColor.active").addClass(`font-${shopActive}`)
-  $("#color button.active").addClass(`font-${colorActive}`)
+  $(this).addClass(`active active${$('.dropdown-item a.activeshop').attr('id')}`).siblings().removeClass()
 }
 
 function jeans() {
-  var jeansActive = $("#jeans button.active").val()
+  $('.dropdown-item a').removeClass('activejeans')
+  $(this).toggleClass('activejeans')
+  $("#jeansLabel").html($(this).html())
 
-  if (jeansActive == "shutsujin") {
-    $("#labelText").html("出陣")
+  if (this.id == "shutsujin") {
     $("#locksp, #locksp .lockspup, #locksp .lockspdwn").show().css("fill","#fff")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "blkshutsujin") {
-    $("#labelText").html("ブラック出陣")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "blkshutsujin") {
     $("#locksp, #locksp .lockspup, #locksp .lockspdwn").show().css("fill","#fff")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#000")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "pnkshutsujin") {
-    $("#labelText").html("ピンク出陣")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "pnkshutsujin") {
     $("#locksp, #locksp .lockspup, #locksp .lockspdwn").show().css("fill","#F26284")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#14203b")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "deepdotan") {
-    $("#labelText").html("特濃銅丹")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "deepdotan") {
     $("#locksp, .lockspup, .lockspdwn").hide()
     $(".stitchdoutan").show()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "dotan") {
-    $("#labelText").html("銅丹")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "dotan") {
     $("#locksp, .lockspup, .lockspdwn").hide()
     $(".stitchdoutan").show()
     $(".pocket").show().css("fill","#14203b")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "ladiesdotan") {
-    $("#labelText").html("レディース銅丹")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "ladiesdotan") {
     $("#locksp, .lockspup, .lockspdwn").hide()
     $(".stitchdoutan").show()
     $(".pocket").show().css("fill","#19312d")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "vintage") {
-    $("#labelText").html("ヴィンテージ")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "vintage") {
     $("#locksp, .lockspup, .lockspdwn, .stitchdoutan").hide()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "kidsshutsujin") {
-    $("#labelText").html("キッズ出陣")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "kidsshutsujin") {
     $("#locksp, #locksp .lockspup, #locksp .lockspdwn").show().css("fill","#fff")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","48px")
-  } else if (jeansActive == "kidsdotan") {
-    $("#labelText").html("キッズ銅丹")
+    $("#rP, #lP").css("padding","4em")
+  } else if (this.id == "kidsdotan") {
     $("#locksp, .lockspup, .lockspdwn").hide()
     $(".stitchdoutan").show()
-    $("#rP, #lP").css("padding","48px")
-  } else if (jeansActive == "ajinoup") {
-    $("#labelText").html("AJ-SK")
+    $("#rP, #lP").css("padding","4em")
+  } else if (this.id == "ajinoup") {
     $("#locksp").show()
     $("#locksp .lockspup").show().css("fill","#0072BC")
     $("#locksp .lockspdwn").show().css("fill","#fff")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","16px")
-  } else if (jeansActive == "ajinodwn") {
-    $("#labelText").html("AJ0205")
+    $("#rP, #lP").css("padding","2em")
+  } else if (this.id == "ajinodwn") {
     $("#locksp").show()
     $("#locksp .lockspup").show().css("fill","#fff")
     $("#locksp .lockspdwn").show().css("fill","#0072BC")
     $(".stitchdoutan").hide()
     $(".pocket").show().css("fill","#01060C")
-    $("#rP, #lP").css("padding","16px")
-  }
-}
-
-function jeansReset(){
-  if ($("#jeans button.active").hasClass("ajinolimited")){
-    $("#jeans button.active").toggleClass("active")
-    $(":button[value=shutsujin]").toggleClass("active")
-    $("#labelText").html("出陣")
+    $("#rP, #lP").css("padding","2em")
   }
 }
 
 function svgChange() {
-  var shopActive = $("#shops button.active").val()
-  var pocketActive = $("#pocket button.active").val()
-  var layerActive = $("#layer button.active").val()
-  var patternActive = $("#pattern button.active").val()
-  var colorActive = $("#color button.active").val()
-  var svgLayer = layerActive - 1
-  var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-
-  for(var i=0; i<color.length; i++){
-    $(`#${pocketActive} .z${layerActive}`).removeClass(`svg${color[i]}`)
+  var svgLayer = lyrA - 1
+  var svgColor = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "popup"]
+  var pcktA = $('#pocket button.active').val()
+  var lyrA = $('#layer button.active').val()
+  var ptrnA = $('#pattern button.active').val()
+  var clrA = $('#color button.active').val()
+  
+  for(var i=0; i<svgColor.length; i++){
+    $(`#${pcktA} .z${lyrA}`).removeClass(`active svg${svgColor[i]}`)
   }
+  
+  $(`#${pcktA} .z${lyrA}`).removeClass(`active z${lyrA}`).hide()
 
-  $(`#${pocketActive} .z${layerActive}`).removeClass(`z${layerActive}`).hide()
-
-  if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
-    $("#color button.active").removeClass("active")
-    $(":button[value=black]").addClass("active")
-    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svgblack`).show()
-    buttonColor()
-  } else if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
-    $("#color button.active").removeClass("active")
-    $(":button[value=white]").addClass("active white")
-    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svgwhite`).show()
-    buttonColor()
-  } else {
-    $(`#${pocketActive} .${patternActive}`).addClass(`z${layerActive} svg${colorActive}`).show()
-  };
-
-  if ($(`#${pocketActive} .${patternActive}`).hasClass("svgshopColor")) {
-    $(`#${pocketActive} .z${layerActive}`).removeClass("svgshopColor")
-    $(`#${pocketActive} .z${layerActive}`).addClass("svg"+shopActive)
-  }
-
-  $(`#${pocketActive} .z${layerActive}`).insertAfter($(`#${pocketActive} .z${svgLayer}`)).show()
-
-}
-
-function svgShop() {
-  var shopActive = $("#shops button.active").val()
-  var layerActive = $("#layer button.active").val()
-  var shopColor = ["ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-
-  for (var i=1; i<4; i++){
-    for (var j=0; j<shopColor.length; j++){
-      if ($(`.z${i}` ).hasClass(`svg${shopColor[j]}`)){
-        $(`.z${i}` ).removeClass(`svg${shopColor[j]}`).addClass(`svg${shopActive}`)
-      }
+  if ($('#pocket button').hasClass('active') && $('#layer button').hasClass('active') && $('#pattern button').hasClass('active') && $('#color button').hasClass('active')){
+    if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
+      $(clrA).removeClass("active")
+      $(":button[value=black]").addClass("active")
+      $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svgblack active`).show()
+    } else if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
+      $(clrA).removeClass("active")
+      $(":button[value=white]").addClass("active white")
+      $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svgwhite active`).show()
+    } else if ($(':button[value=shopColor]').hasClass('active')){
+      $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svg${$('.activeshop').attr('id')} active`).show()
+    } else {
+      $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svg${clrA} active`).show()
+    };
+  
+    if ($(`#${pcktA} .${ptrnA}`).hasClass("svgshopColor")) {
+      $(`#${pcktA} .z${lyrA}`).removeClass("svgshopColor")
+      $(`#${pcktA} .z${lyrA}`).addClass(`svg${$('.activeshop').attr('id')}`)
     }
-  }
+  
+    $(`#${pcktA} .z${lyrA}`).insertAfter($(`#${pcktA} .z${svgLayer}`)).show()
+    } 
 }
 
 function reset() {
-  var shop = "ajino okayama aoyama koenji osaka kyoto web momoshop"
-  var color = "white red pink pearl gold black"
-  var active = "#pocket button, #layer button, #pattern button, #color button"
-  var btn1 = "#pattern button, #color button"
-  var btn0 = "#pocket button, #layer button"
-  var c = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
+  var c = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "popup"]
 
   for(var j=1; j<4; j++){
     for(var i=0; i<c.length; i++){
       $(`.z${[j]}`).removeClass(`svg${c[i]}`)
     }
-
     $(`.z${[j]}`).hide().removeClass(this)
   }
+
   $(".spup").css("display", "")
   $(".spdwn").css("display", "")
-  $(btn0, btn1).removeClass("active")
-  $(btn1).prop('disabled', true)
-  $("#pocket button, #layer button, #pattern button").removeClass(`${shop} active`)
-  $("#color button").removeClass(`${color} active`)
+  $.each(shop, function(_i, val){
+    $(`.active${val}`).removeClass(`active active${val}`)
+  }, color, function(_i, val){
+    $(`.active${val}`).removeClass(`active active${val}`)
+  })
 }
 
-function button0Disabled(){
-  var btn0 = "#pocket button, #layer button"
-  var shopsActive = $("#shops button").hasClass("active")
+function date() {
+  var dateObj = new Date()
+  var month = dateObj.getUTCMonth() + 1
+  var day = dateObj.getUTCDate()
+  var year = dateObj.getUTCFullYear()
 
-  if (shopsActive) {
-    $(btn0).prop('disabled', false)
-  } else {
-    $(btn0).prop('disabled', true)
-  }
+  $(".date").append(`${year}年　${month}月　${day}日`)
 }
 
-function button1Disabled(){
-  var btn1 = "#pattern button, #color button"
-  var shopsActive = $("#shops button").hasClass("active")
-  var pocketActive = $("#pocket button").hasClass("active")
-  var layerActive = $("#layer button").hasClass("active")
-  var jeansActive = $("#jeans button.active").val()
 
-  if (pocketActive && layerActive){
-    $(btn1).prop('disabled', false)
-  } else {
-    $(btn1).prop('disabled', true)
-  }
 
-  if (jeansActive == "kidsdotan"){
-    $("#pattern button.nokids").hide()
-    $("#pattern button.kids").show()
-  } else if (jeansActive == "kidsshutsujin"){
-    $("#pattern button.nokids").hide()
-    $("#pattern button.kids").show()
-  } else {
-    $("#pattern button").show()
-  }
-
-  if (pocketActive && layerActive && $("#pattern button.ic").hasClass("active")){
-    $("#color button.noic").hide()
-    $("#color button.blk").show()
-    $("#color button.ic").show()
-  } else {
-    $("#color button.noic").show()
-    $("#color button.blk").hide()
-    $("#color button.ic").show()
-  }
-}
-
-function setShopCookie(){
-  var shopActive = $("#shops button.active").val()
-  Cookies.set('shop', shopActive, { expires: 7 })
-}
-
-function getShopCookie(){
-  var shopCookie = Cookies.get('shop')
-
-  $(`button.font-${shopCookie}`).toggleClass("active")
-
-  shopColor()
-
-}
+// Old Functions
 
 function printFormShow(){
   $("header").hide()
-  $(".pocketmenu").hide()
+  $("#pocketlayer").hide()
   $("#pattern").hide()
   $("#color").hide()
   $(".svgContainer").hide()
@@ -281,10 +241,7 @@ function printFormShow(){
 function resetPrint() {
   var LR = ["l", "r"]
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
-  var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
-  var color = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
-  var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "味野ブルー", "マスカットグリーン", "ダークグレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
-  var shop = $("#shopText").html();
+  var color = ["white", "red", "pink", "pearl", "gold", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "popup"]
 
   $(".printFromShop").html("");
   $(".paintCounter").html("");
@@ -309,12 +266,12 @@ function load() {
   var LR = ["l", "r"]
   var pattern = ["sp", "ichimatsu", "spka", "spmo", "momotaro", "oni", "kanji", "kamon", "momochan"]
   var patternText = ["#SP　出陣ライン", "#IC　出陣市松", "#SK　出陣家紋", "#SM　出陣桃", "#MO　写楽桃太郎", "#ON　写楽鬼", "#MJ　桃太郎文字", "#KP　家紋", "#MT　桃太郎"]
-  var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "momoshop"]
+  var color = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "popup"]
   var colorText = ["ホワイト", "レッド", "ピンク", "ピンクパール", "ゴールド", "ブラック", "味野ブルー", "マスカットグリーン", "ダークグレー", "パープル", "イエロー", "ブラウン", "オレンジ", "サンドベージュ"]
   var paintCounter = 0
   var shop = $("#shopText").html()
 
-  $(".printFromShop").append(`${shop}・`)
+  $(".printFromShop").append(`${$('.activeshop').html()}・`)
 
   for (var j = 0; j < LR.length; j++) {
     for (var i = 1; i < 4; i++) {
@@ -351,18 +308,9 @@ function printIt(){
   }, 100)
 }
 
-function date() {
-  var dateObj = new Date()
-  var month = dateObj.getUTCMonth() + 1
-  var day = dateObj.getUTCDate()
-  var year = dateObj.getUTCFullYear()
-
-  $(".date").append(`${year}年　${month}月　${day}日`)
-}
-
 function getBack(){
   $("header").show()
-  $(".pocketmenu").show()
+  $("#pocketlayer").show()
   $("#pattern").show()
   $("#color").show()
   $(".svgContainer").show()
@@ -371,44 +319,24 @@ function getBack(){
 }
 
 $(document)
-  .ready(getShopCookie)
-  .ready(button0Disabled)
-  .ready(button1Disabled)
-  .ready(reset)
   .ready(date)
   .ready(function() {
-    var btn = "#shops button, #jeans button, #pocket button, #layer button, #pattern button, #color button"
-    var btn1 = "#pocket button, #layer button, #pattern button"
-    var btn2 = "#pattern button, #color button"
 
-    $(btn)
-      .click(activeButton)
-      .click(shopColor)
-      .click(button0Disabled)
-      .click(button1Disabled);
+    $('#pocketlayer button, #pattern button, #color button')
+      .click(activeButton);
 
-    $(btn1)
-      .click(buttonColor);
-
-    $(btn2)
+    $('#pattern button, #color button')
       .click(svgChange);
 
-    $("#color button")
-      .click(buttonColor);
+    $('.dd1 a')
+      .click(shopThemeSave)
+      .click(shopTheme)
+      .click(shopTriggers);
 
-    $("#shops button")
-      .click(buttonColor)
-      .click(svgShop)
-      .click(jeansReset)
-      .click(jeans)
-      .click(setShopCookie);
-
-    $("#jeans button, #reset")
+    $('.dd2 a')
       .click(jeans);
 
-    $("#reset")
-      .click(button0Disabled)
-      .click(button1Disabled)
+    $('#reset')
       .click(reset);
 
     $(":button[id=print]")
@@ -419,4 +347,5 @@ $(document)
     $(":button[id=getBack]")
       .click(getBack)
       .click(getShopCookie);
-    });
+  
+  });
