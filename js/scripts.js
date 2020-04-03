@@ -348,5 +348,4 @@ $(document)
     $(":button[id=getBack]")
       .click(getBack)
       .click(getTheme);
-  
   });
