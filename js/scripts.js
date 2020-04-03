@@ -46,6 +46,19 @@ const theme = localStorage.getItem('theme')
 
 // New Functions
 
+function getTheme(){
+  if (theme){
+    $('.shopColor').css('color', shopColorCode.get(theme))
+    $('#shopLabel').html(shopKanji.get(theme))
+  
+    if (theme == "ajino") {
+        $(".ajinolmtd").show()
+      } else {
+        $(".ajinolmtd").hide()
+      }
+  }
+}
+
 function shopThemeSave(){
   localStorage.setItem('theme', this.id)
 }
@@ -307,19 +320,8 @@ function getBack(){
 
 $(document)
   .ready(date)
+  .ready(getTheme)
   .ready(function() {
-    
-    if (theme){
-      $('.shopColor').css('color', shopColorCode.get(theme))
-      $('#shopLabel').html(shopKanji.get(theme))
-    
-      if (theme == "ajino") {
-          $(".ajinolmtd").show()
-        } else {
-          $(".ajinolmtd").hide()
-        }
-    
-    }
 
     $('#pocketlayer button, #pattern button, #color button')
       .click(activeButton);
@@ -345,6 +347,6 @@ $(document)
 
     $(":button[id=getBack]")
       .click(getBack)
-      .click(getShopCookie);
+      .click(getTheme);
   
   });
