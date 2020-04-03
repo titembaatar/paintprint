@@ -31,7 +31,6 @@ const shopColorCode = new Map([
   ['web', '#FA8E43'],
   ['popup', '#D3C6A6']
 ])
-
 const shopKanji = new Map([
   ['ajino', '味野本店'],
   ['okayama', '岡山店'],
@@ -44,18 +43,6 @@ const shopKanji = new Map([
 ])
 
 const theme = localStorage.getItem('theme')
-
-if (theme){
-  $('.shopColor').css('color', shopColorCode.get(theme))
-  $('#shopLabel').html(shopKanji.get(theme))
-
-  if (theme == "ajino") {
-      $(".ajinolmtd").show()
-    } else {
-      $(".ajinolmtd").hide()
-    }
-
-}
 
 // New Functions
 
@@ -321,6 +308,18 @@ function getBack(){
 $(document)
   .ready(date)
   .ready(function() {
+    
+    if (theme){
+      $('.shopColor').css('color', shopColorCode.get(theme))
+      $('#shopLabel').html(shopKanji.get(theme))
+    
+      if (theme == "ajino") {
+          $(".ajinolmtd").show()
+        } else {
+          $(".ajinolmtd").hide()
+        }
+    
+    }
 
     $('#pocketlayer button, #pattern button, #color button')
       .click(activeButton);
