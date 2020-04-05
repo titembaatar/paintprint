@@ -16,7 +16,7 @@ $kyoto: #684927
 $web: #FA8E43
 $popup: #D3C6A6
 $btnShadow: inset 0 0 4px rgba(55, 84, 170,0), inset 0 0 5px rgba(255, 255, 255,0), 2px 2px 4px rgba(55, 84, 170,.15), -2px -2px 5px rgba(255, 255, 255,1), inset 0px 0px 1px rgba(255, 255, 255,.2)
-$hoverShadow: inset 1px 1px 3vh rgba(55, 84, 170, .1), inset -1px -1px 3vh rgba(255, 255, 255, 1), 2px 2px 4px rgba(55, 84, 170,.15), -2px -2px 5px rgba(255, 255, 255,1)
+$hoverShadow: inset 1px 1px 3rem rgba(55, 84, 170, .1), inset -1px -1px 3rem rgba(255, 255, 255, 1), 2px 2px 4px rgba(55, 84, 170,.15), -2px -2px 5px rgba(255, 255, 255,1)
 $activeShadow: inset 2px 2px 4px rgba(55, 84, 170,.15), inset -2px -2px 5px rgba(255, 255, 255,1), 0px 0px 1px rgba(255, 255, 255,.2)
 
 $shops: (ajino: $ajino, okayama: $okayama, aoyama: $aoyama, koenji: $koenji, osaka: $osaka, kyoto: $kyoto, web: $web, popup: $popup)
@@ -73,7 +73,7 @@ section
 
     .svg#{$key}
         fill: $val!important
-        transition: fill .25s ease, display .2s ease
+        transition: fill .25s ease-out, display .2s ease-out
 
 
 @each $key, $val in $colors
@@ -83,27 +83,28 @@ section
 
     .svg#{$key}
         fill: $val!important
-        transition: fill .25s ease, display .2s ease
+        transition: fill .25s ease-out, display .2s ease-out
 
 .svgundefined
     fill: rgba(255,255,255,0.0)
-    transition: fill .25s ease, display .2s ease
+    transition: fill .25s ease-out, display .2s ease-out
 
 
 .svgwhite
     fill: #fff
-    transition: fill .25s ease, display .2s ease
+    transition: fill .25s ease-out, display .2s ease-out
 
 
 /* DROPDOWN */
 
 .dropdown 
-    position: absolute
+    position: fixed
+    top: .5rem
+    left: .5rem
     display: flex
     flex-direction: row
     align-items: center
-    visibility: hidden
-    opacity: 0
+    pointer-events: none
     z-index: 2
     color: #111
     background: #f1f3f6
@@ -112,36 +113,30 @@ section
     border: solid #eee 1px
     align-items: center
 
-    transition: box-shadow 499ms ease-in-out, color 499ms ease-in-out, visibility .5s ease, opacity .15s ease
+    transition: opacity .2s ease-out
 
-.dd1
-    transform: translate(-3vh, -6vh);
+#dd1
+    opacity: 0
 
-.dd2
-    transform: translate(-17vh, -6vh)
-
-.has-dropdown:focus-within .dropdown
-    visibility: visible
-    opacity: 1
-    pointer-events: auto
+#dd2
+    opacity: 0
 
 .dropdown-item
-    padding: 2vh 1.5vh
+    padding: .75rem .4rem
     white-space: nowrap
-    transition: box-shadow 499ms ease-in-out
-
+    opacity: 1
 
     &:hover
         outline: 0
         box-shadow: $activeShadow
         
     &:first-child
-        padding: 2vh 1.5vh 2vh 2vh
+        padding: .75rem .4rem .75rem .8rem
         border-bottom-left-radius: 5px
         border-top-left-radius: 5px
 
     &:last-child
-        padding: 2vh 2vh 2vh 1.5vh
+        padding: .75rem .8rem .75rem .4rem
         border-bottom-right-radius: 5px
         border-top-right-radius: 5px
 
@@ -159,24 +154,23 @@ header
     background: #f1f3f6
     border-bottom: solid #e1e3e6 1px
     box-shadow: 2px 2px 4px rgba(55, 84, 170,.15)
-    padding: 2vh
+    padding: .75rem
     border-bottom-left-radius: 5px
     border-bottom-right-radius: 5px
 
 .nav-item
     background: #f1f3f6
     height: 100%
-    margin-right: 2vh
+    margin-right: 1rem
     box-shadow: $btnShadow
     border-radius: 5px
     border: 1px solid #eee
-    padding: 1.5vh 2vh
-    transition: box-shadow .15s ease-in-out
+    padding: .5rem .8rem
+    transition: box-shadow .15s ease-out
 
     &:active
         outline: 0
         box-shadow: $activeShadow
-
 
 #MTJ
     margin-left: auto
@@ -205,17 +199,18 @@ header
 #pocket, #layer, #pattern, #color
     display: flex
     justify-content: center
-    margin-top: 2vh
+    margin-top: .75rem
+    min-height: 2.6rem
 
     button
-        margin-right: 2vh
+        margin-right: 1rem
         color: #111
-        padding: 1vh 2vh
+        padding: .5rem .8rem
         box-shadow: $btnShadow
         background: #f1f3f6
         border-radius: 5px
         border: 1px solid #eee
-        transition: box-shadow .15s ease-in-out, color .15s ease-in-out
+        transition: box-shadow .15s ease-out, color .15s ease-out
 
         &:last-child
             margin: 0
@@ -226,6 +221,37 @@ header
         &:active, &.active
             color: $colorShop
             box-shadow: $activeShadow
+
+        &:disabled
+            box-shadow: none
+            color: #777
+            cursor: not-allowed
+
+/* ANIMATIONS CLASSES */
+
+.textFadeout
+    opacity: 0
+    transition: opacity .2s ease-out
+
+.textFadein
+    opacity: 1
+    transition: opacity .2s ease-out
+
+.shadowFadeout
+    box-shadow: inset 0 0 4px rgba(55, 84, 170,0),
+    inset 0 0 5px rgba(255, 255, 255,0),
+    2px 2px 4px rgba(55, 84, 170,0),
+    -2px -2px 5px rgba(255, 255, 255,0),
+    inset 0px 0px 1px rgba(255, 255, 255,0)
+    transition: box-shadow .2s ease-out!important
+    border-color: transparent
+    transition: border-color .2s ease-out
+
+.shadowFadein
+    box-shadow: $btnShadow
+    transition: box-shadow .2s ease-out .3s!important
+    border: solid #eee 1px
+    transition: border-color .2s ease-out
 
 /* PRINT FORM */
 

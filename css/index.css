@@ -61,8 +61,8 @@ section {
 
 .svgajino {
   fill: #0072bc !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #okayama, .activeokayama {
@@ -71,8 +71,8 @@ section {
 
 .svgokayama {
   fill: #0db14b !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #aoyama, .activeaoyama {
@@ -81,8 +81,8 @@ section {
 
 .svgaoyama {
   fill: #58595b !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #koenji, .activekoenji {
@@ -91,8 +91,8 @@ section {
 
 .svgkoenji {
   fill: #903f98 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #osaka, .activeosaka {
@@ -101,8 +101,8 @@ section {
 
 .svgosaka {
   fill: #f1ca3a !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #kyoto, .activekyoto {
@@ -111,8 +111,8 @@ section {
 
 .svgkyoto {
   fill: #684927 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #web, .activeweb {
@@ -121,8 +121,8 @@ section {
 
 .svgweb {
   fill: #FA8E43 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #popup, .activepopup {
@@ -131,8 +131,8 @@ section {
 
 .svgpopup {
   fill: #D3C6A6 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #blackBtn:active, #blackBtn.active {
@@ -141,8 +141,8 @@ section {
 
 .svgblack {
   fill: #000 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #redBtn:active, #redBtn.active {
@@ -151,8 +151,8 @@ section {
 
 .svgred {
   fill: #E60013 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #pinkBtn:active, #pinkBtn.active {
@@ -161,8 +161,8 @@ section {
 
 .svgpink {
   fill: #E23688 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #pearlBtn:active, #pearlBtn.active {
@@ -171,8 +171,8 @@ section {
 
 .svgpearl {
   fill: #F1AEC3 !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 #goldBtn:active, #goldBtn.active {
@@ -181,25 +181,27 @@ section {
 
 .svggold {
   fill: #CFB53B !important;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 .svgundefined {
   fill: rgba(255, 255, 255, 0);
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 .svgwhite {
   fill: #fff;
-  -webkit-transition: fill .25s ease, display .2s ease;
-  transition: fill .25s ease, display .2s ease;
+  -webkit-transition: fill .25s ease-out, display .2s ease-out;
+  transition: fill .25s ease-out, display .2s ease-out;
 }
 
 /* DROPDOWN */
 .dropdown {
-  position: absolute;
+  position: fixed;
+  top: .5rem;
+  left: .5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -210,8 +212,7 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  visibility: hidden;
-  opacity: 0;
+  pointer-events: none;
   z-index: 2;
   color: #111;
   background: #f1f3f6;
@@ -220,35 +221,22 @@ section {
           box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
   border: solid #eee 1px;
   align-items: center;
-  -webkit-transition: color 499ms ease-in-out, visibility .5s ease, opacity .15s ease, -webkit-box-shadow 499ms ease-in-out;
-  transition: color 499ms ease-in-out, visibility .5s ease, opacity .15s ease, -webkit-box-shadow 499ms ease-in-out;
-  transition: box-shadow 499ms ease-in-out, color 499ms ease-in-out, visibility .5s ease, opacity .15s ease;
-  transition: box-shadow 499ms ease-in-out, color 499ms ease-in-out, visibility .5s ease, opacity .15s ease, -webkit-box-shadow 499ms ease-in-out;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
 }
 
-.dd1 {
-  -webkit-transform: translate(-3vh, -6vh);
-          transform: translate(-3vh, -6vh);
+#dd1 {
+  opacity: 0;
 }
 
-.dd2 {
-  -webkit-transform: translate(-14.5vh, -6vh);
-          transform: translate(-14.5vh, -6vh);
-}
-
-.has-dropdown:focus-within .dropdown {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
+#dd2 {
+  opacity: 0;
 }
 
 .dropdown-item {
-  padding: 2vh 1.5vh;
+  padding: .75rem .4rem;
   white-space: nowrap;
-  -webkit-transition: -webkit-box-shadow 499ms ease-in-out;
-  transition: -webkit-box-shadow 499ms ease-in-out;
-  transition: box-shadow 499ms ease-in-out;
-  transition: box-shadow 499ms ease-in-out, -webkit-box-shadow 499ms ease-in-out;
+  opacity: 1;
 }
 
 .dropdown-item:hover {
@@ -258,13 +246,13 @@ section {
 }
 
 .dropdown-item:first-child {
-  padding: 2vh 1.5vh 2vh 2vh;
+  padding: .75rem .4rem .75rem .8rem;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
 
 .dropdown-item:last-child {
-  padding: 2vh 2vh 2vh 1.5vh;
+  padding: .75rem .8rem .75rem .4rem;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -296,7 +284,7 @@ header {
   border-bottom: solid #e1e3e6 1px;
   -webkit-box-shadow: 2px 2px 4px rgba(55, 84, 170, 0.15);
           box-shadow: 2px 2px 4px rgba(55, 84, 170, 0.15);
-  padding: 2vh;
+  padding: .75rem;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -304,16 +292,16 @@ header {
 .nav-item {
   background: #f1f3f6;
   height: 100%;
-  margin-right: 2vh;
+  margin-right: 1rem;
   -webkit-box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   border: 1px solid #eee;
-  padding: 1.5vh 2vh;
-  -webkit-transition: -webkit-box-shadow .15s ease-in-out;
-  transition: -webkit-box-shadow .15s ease-in-out;
-  transition: box-shadow .15s ease-in-out;
-  transition: box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  padding: .5rem .8rem;
+  -webkit-transition: -webkit-box-shadow .15s ease-out;
+  transition: -webkit-box-shadow .15s ease-out;
+  transition: box-shadow .15s ease-out;
+  transition: box-shadow .15s ease-out, -webkit-box-shadow .15s ease-out;
 }
 
 .nav-item:active {
@@ -370,22 +358,23 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 2vh;
+  margin-top: .75rem;
+  min-height: 2.6rem;
 }
 
 #pocket button, #layer button, #pattern button, #color button {
-  margin-right: 2vh;
+  margin-right: 1rem;
   color: #111;
-  padding: 1vh 2vh;
+  padding: .5rem .8rem;
   -webkit-box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
   background: #f1f3f6;
   border-radius: 5px;
   border: 1px solid #eee;
-  -webkit-transition: color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
-  transition: color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
-  transition: box-shadow .15s ease-in-out, color .15s ease-in-out;
-  transition: box-shadow .15s ease-in-out, color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+  -webkit-transition: color .15s ease-out, -webkit-box-shadow .15s ease-out;
+  transition: color .15s ease-out, -webkit-box-shadow .15s ease-out;
+  transition: box-shadow .15s ease-out, color .15s ease-out;
+  transition: box-shadow .15s ease-out, color .15s ease-out, -webkit-box-shadow .15s ease-out;
 }
 
 #pocket button:last-child, #layer button:last-child, #pattern button:last-child, #color button:last-child {
@@ -393,14 +382,58 @@ header {
 }
 
 #pocket button:hover, #layer button:hover, #pattern button:hover, #color button:hover {
-  -webkit-box-shadow: inset 1px 1px 3vh rgba(55, 84, 170, 0.1), inset -1px -1px 3vh white, 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white;
-          box-shadow: inset 1px 1px 3vh rgba(55, 84, 170, 0.1), inset -1px -1px 3vh white, 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white;
+  -webkit-box-shadow: inset 1px 1px 3rem rgba(55, 84, 170, 0.1), inset -1px -1px 3rem white, 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white;
+          box-shadow: inset 1px 1px 3rem rgba(55, 84, 170, 0.1), inset -1px -1px 3rem white, 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white;
 }
 
 #pocket button:active, #pocket button.active, #layer button:active, #layer button.active, #pattern button:active, #pattern button.active, #color button:active, #color button.active {
   color: #111;
   -webkit-box-shadow: inset 2px 2px 4px rgba(55, 84, 170, 0.15), inset -2px -2px 5px white, 0px 0px 1px rgba(255, 255, 255, 0.2);
           box-shadow: inset 2px 2px 4px rgba(55, 84, 170, 0.15), inset -2px -2px 5px white, 0px 0px 1px rgba(255, 255, 255, 0.2);
+}
+
+#pocket button:disabled, #layer button:disabled, #pattern button:disabled, #color button:disabled {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #777;
+  cursor: not-allowed;
+}
+
+/* ANIMATIONS CLASSES */
+.textFadeout {
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
+}
+
+.textFadein {
+  opacity: 1;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
+}
+
+.shadowFadeout {
+  -webkit-box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0), -2px -2px 5px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+          box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0), -2px -2px 5px rgba(255, 255, 255, 0), inset 0px 0px 1px rgba(255, 255, 255, 0);
+  -webkit-transition: -webkit-box-shadow 0.2s ease-out !important;
+  transition: -webkit-box-shadow 0.2s ease-out !important;
+  transition: box-shadow 0.2s ease-out !important;
+  transition: box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out !important;
+  border-color: transparent;
+  -webkit-transition: border-color .2s ease-out;
+  transition: border-color .2s ease-out;
+}
+
+.shadowFadein {
+  -webkit-box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0 0 4px rgba(55, 84, 170, 0), inset 0 0 5px rgba(255, 255, 255, 0), 2px 2px 4px rgba(55, 84, 170, 0.15), -2px -2px 5px white, inset 0px 0px 1px rgba(255, 255, 255, 0.2);
+  -webkit-transition: -webkit-box-shadow 0.2s ease-out 0.3s !important;
+  transition: -webkit-box-shadow 0.2s ease-out 0.3s !important;
+  transition: box-shadow 0.2s ease-out 0.3s !important;
+  transition: box-shadow 0.2s ease-out 0.3s, -webkit-box-shadow 0.2s ease-out 0.3s !important;
+  border: solid #eee 1px;
+  -webkit-transition: border-color .2s ease-out;
+  transition: border-color .2s ease-out;
 }
 
 /* PRINT FORM */

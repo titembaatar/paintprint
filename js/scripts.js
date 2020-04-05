@@ -46,10 +46,28 @@ const theme = localStorage.getItem('theme')
 
 // New Functions
 
+var shopThemeFunction = {
+  themeFunction: function (shopID) {
+    $('.dropdown-item a').removeClass('activeshop')
+    $(`#${shopID}`).toggleClass('activeshop')
+    $('.shopColor').css('color', shopColorCode.get(shopID))
+  
+    $('#shopLabel').html($(`#${shopID}`).html())
+    
+    $.each(shop, function(_i, val){
+      $(`.active${val}`).removeClass(`active${val}`)
+      $(`.svg${val}`).removeClass(`svg${val}`)
+    })
+    $('button.active').addClass(`active${shopID}`)
+    $('#svgContainer .active').addClass(`svg${shopID}`)
+  }
+}
+
 function getTheme(){
   if (theme){
     $('.shopColor').css('color', shopColorCode.get(theme))
     $('#shopLabel').html(shopKanji.get(theme))
+    shopThemeFunction.themeFunction(theme)
   
     if (theme == "ajino") {
         $(".ajinolmtd").show()
@@ -64,18 +82,7 @@ function shopThemeSave(){
 }
 
 function shopTheme() {
-  $('.dropdown-item a').removeClass('activeshop')
-  $(this).toggleClass('activeshop')
-  $('.shopColor').css('color', shopColorCode.get(this.id))
-
-  $('#shopLabel').html($(this).html())
-  
-  $.each(shop, function(_i, val){
-    $(`.active${val}`).removeClass(`active${val}`)
-    $(`.svg${val}`).removeClass(`svg${val}`)
-  })
-  $('button.active').addClass(`active${this.id}`)
-  $('#svgContainer .active').addClass(`svg${this.id}`)
+  shopThemeFunction.themeFunction(this.id)
 }
 
 function shopTriggers(){
@@ -86,12 +93,15 @@ function shopTriggers(){
   }
 
   if (this.id != 'ajino' && $('#ajinoup, #ajinodwn').hasClass('activejeans') ){
-    $('#shutsujin').trigger('click')
+    $("#locksp, #locksp .lockspup, #locksp .lockspdwn").show().css("fill","#fff")
+    $(".stitchdoutan").hide()
+    $(".pocket").show().css("fill","#01060C")
+    $("#rP, #lP").css("padding","2em")
   }
 }
 
 function activeButton() {
-  $(this).addClass(`active active${$('.dropdown-item a.activeshop').attr('id')}`).siblings().removeClass()
+  $(this).addClass(`active active${$('a.activeshop').attr('id')}`).siblings().removeClass(`active active${$('a.activeshop').attr('id')}`)
 }
 
 function jeans() {
@@ -159,6 +169,54 @@ function jeans() {
   }
 }
 
+function optionButtonTrigger(){
+  if ($('a.kidsjeans').hasClass('activejeans')){
+    $('button.nokids').hide()
+  } else {
+    $('button.nokids').show()
+  }
+
+  if ($('#dd1 a').hasClass('activeshop')){
+    $('#pocket button').prop('disabled', false)
+
+    if ($('#pocket button').hasClass('active')){
+      $('#layer button').prop('disabled', false)
+
+      if ($('#layer button').hasClass('active')){
+        $('#pattern button').prop('disabled', false)
+
+        if ($('#pattern button').hasClass('active')){
+          $('#color button').prop('disabled', false)
+          if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
+            $('#color button').hide().removeClass('active')
+            $('button.ichim').show()
+            $(':button[value=black]').addClass('active')
+          }
+          if ($('a.activejeans').hasClass('kidsjeans') && $('#pattern button.active').hasClass('nokids')){
+            $('#pattern button.active').removeClass('active')
+            $(':button[value=sp]').addClass('active')
+            svgChange()
+            shopThemeFunction.themeFunction($('.activeshop').attr('id'))
+          }
+
+          if ($('#color button').hasClass('active')){
+            if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
+              $('#color button').hide().removeClass('active')
+              $('button.noblk').show()
+              $(':button[value=white]').addClass('active')
+              }
+
+            if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("#color button.ic").hasClass("active")){
+              $('#color button').hide()
+              $('button.noblk').show()
+            }
+          }
+        }
+      }
+    }  
+  }
+} 
+
 function svgChange() {
   var svgLayer = lyrA - 1
   var svgColor = ["white", "red", "pink", "pearl", "gold", "black", "ajino", "okayama", "aoyama", "koenji", "osaka", "kyoto", "web", "popup"]
@@ -175,12 +233,8 @@ function svgChange() {
 
   if ($('#pocket button').hasClass('active') && $('#layer button').hasClass('active') && $('#pattern button').hasClass('active') && $('#color button').hasClass('active')){
     if ($(":button[value=ichimatsu]").hasClass("active") && !$("#color button.ichim").hasClass("active")){
-      $(clrA).removeClass("active")
-      $(":button[value=black]").addClass("active")
       $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svgblack active`).show()
     } else if (!$("#pattern :button[value=ichimatsu]").hasClass("active") && $("button.blk").hasClass("active")){
-      $(clrA).removeClass("active")
-      $(":button[value=white]").addClass("active white")
       $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svgwhite active`).show()
     } else if ($(':button[value=shopColor]').hasClass('active')){
       $(`#${pcktA} .${ptrnA}`).addClass(`z${lyrA} svg${$('.activeshop').attr('id')} active`).show()
@@ -214,6 +268,9 @@ function reset() {
   }, color, function(_i, val){
     $(`.active${val}`).removeClass(`active active${val}`)
   })
+
+  $('#pocket button, #layer button, #pattern button, #color button').prop('disabled', true)
+  optionButtonTrigger()
 }
 
 function date() {
@@ -225,7 +282,62 @@ function date() {
   $(".date").append(`${year}年　${month}月　${day}日`)
 }
 
+function ddFadein(){
+  var classes = '#dd1, #dd2, .dropdown-item'
 
+  $('.nav-item button').delay(200).queue(function(next){
+    $(this).addClass('textFadeout')
+    next()
+  })
+  $('.nav-item').delay(400).queue(function(next){
+    $(this).addClass('shadowFadeout')
+    next()
+  })
+  if (this.id == 'shopLabel'){
+    $('#dd1').delay(600).queue(function(next){
+      $(this).css({'opacity': '1', 'pointer-events': 'auto'})
+      next()
+    })
+  }
+  if (this.id == 'jeansLabel'){
+    $('#dd2').delay(600).queue(function(next){
+      $(this).css({'opacity': '1', 'pointer-events': 'auto'})
+      next()
+    })
+  }
+  $('.dropdown-item').delay(800).queue(function(next){
+    $(this).addClass('textFadein')
+    next()
+  })
+  $(classes).delay(1100).queue(function(next){
+    $(classes).removeClass('textFadein textFadeout shadowFadein shadowFadeout').dequeue()
+  })
+}
+
+function ddFadeout(){
+  var classes = '.nav-item button, .nav-item, #dd1, #dd2, .dropdown-item'
+
+  $('.dropdown-item').addClass('textFadeout')
+  $('#dd1').delay(400).queue(function(next){
+    $(this).css({'opacity': '0', 'pointer-events': 'none'})
+    next()
+  })
+  $('#dd2').delay(400).queue(function(next){
+    $(this).css({'opacity': '0', 'pointer-events': 'none'})
+    next()
+  })
+  $('.nav-item').delay(600).queue(function(next){
+    $(this).addClass('shadowFadein')
+    next()
+  })
+  $('.nav-item button').delay(800).queue(function(next){
+    $(this).addClass('textFadein')
+    next()
+  })
+  $(classes).delay(1100).queue(function(next){
+    $(classes).removeClass('textFadein textFadeout shadowFadein shadowFadeout').dequeue()
+  })
+}
 
 // Old Functions
 
@@ -320,22 +432,28 @@ function getBack(){
 
 $(document)
   .ready(date)
-  .ready(getTheme)
   .ready(function() {
 
     $('#pocketlayer button, #pattern button, #color button')
-      .click(activeButton);
+      .click(activeButton)
+      .click(optionButtonTrigger);
 
     $('#pattern button, #color button')
       .click(svgChange);
 
-    $('.dd1 a')
+    $('.has-dropdown button').click(ddFadein);
+
+    $('#dd1 a')
       .click(shopThemeSave)
       .click(shopTheme)
       .click(shopTriggers);
 
-    $('.dd2 a')
+    $('#dd2 a')
       .click(jeans);
+
+    $('#dd1 a, #dd2 a')
+      .click(ddFadeout)
+      .click(optionButtonTrigger);
 
     $('#reset')
       .click(reset);
@@ -348,4 +466,6 @@ $(document)
     $(":button[id=getBack]")
       .click(getBack)
       .click(getTheme);
-  });
+  })
+  .ready(getTheme)
+  .ready(optionButtonTrigger);

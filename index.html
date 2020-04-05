@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="css/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="js/js.cookie.js"></script>
   <script src="js/scripts.js"></script>
 </head>
 
@@ -19,8 +18,8 @@
       <nav class="navbar">
         <ul class="navbar-nav">
           <li class="nav-item has-dropdown">
-            <a id="shopLabel" class="dropdown-link shopColor" href="#">店舗</a>
-            <ul class="dropdown dd1">
+            <button id="shopLabel" class="shopColor">店舗</button>
+            <ul id="dd1" class="dropdown">
               <li class="dropdown-item">
                 <a id="ajino" href="#">味野本店</a>
               </li>
@@ -48,8 +47,8 @@
             </ul>
           </li>
           <li class="nav-item has-dropdown">
-            <a id="jeansLabel" class="dropdown-link" href="#">出陣</a>
-            <ul class="dropdown dd2">
+            <button id="jeansLabel" class="dropdown-link">出陣</button>
+            <ul id="dd2" class="dropdown">
               <li class="dropdown-item">
                 <a id="shutsujin" href="#">出陣</a>
               </li>
@@ -69,10 +68,10 @@
                 <a id="ladiesdotan" href="#">女性銅丹</a>
               </li>
               <li class="dropdown-item">
-                <a id="kidsshutsujin" href="#">子供出陣</a>
+                <a id="kidsshutsujin" class="kidsjeans" href="#">子供出陣</a>
               </li>
               <li class="dropdown-item">
-                <a id="kidsdotan" href="#">子供銅丹</a>
+                <a id="kidsdotan" class="kidsjeans" href="#">子供銅丹</a>
               </li>
               <li class="dropdown-item ajinolmtd" style="display: none;">
                 <a id="ajinoup" href="#">AJ-SK</a>
@@ -83,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-item">
-          <button type="button" id="reset">取消</button>
+            <button type="button" id="reset">取消</button>
           </li>
           <li class="nav-item">
             <button type="button" id="print">印刷</button>
@@ -97,36 +96,36 @@
   
     <div id="pocketlayer">
       <div id="pocket">
-        <button type="button" value="lP">左</button>
-        <button type="button"  value="rP">右</button>
+        <button type="button" value="lP" disabled>左</button>
+        <button type="button"  value="rP" disabled>右</button>
       </div>
       <div id="layer">
-        <button type="button" value="1" id="l1">1</button>
-        <button type="button" value="2">2</button>
-        <button type="button" value="3">3</button>
+        <button type="button" value="1" disabled>1</button>
+        <button type="button" value="2" disabled>2</button>
+        <button type="button" value="3" disabled>3</button>
       </div>
     </div>
   
     <div id="pattern">
-      <button type="button" class="kids" value="sp">出陣</button>
-      <button type="button" class="kids" value="spka">出陣家紋</button>
-      <button type="button" class="kids" value="spmo">出陣桃</button>
-      <button type="button" class="kids" value="kamon">家紋</button>
-      <button type="button" class="nokids" value="oni">鬼</button>
-      <button type="button" class="nokids" value="momotaro">桃太郎</button>
-      <button type="button" class="kids" value="momochan">イラスト</button>
-      <button type="button" class="nokids" value="kanji">漢字</button>
-      <button type="button" class="kids ic" value="ichimatsu">出陣市松</button>
+      <button type="button" class="kids" value="sp" disabled>出陣</button>
+      <button type="button" class="kids" value="spka" disabled>出陣家紋</button>
+      <button type="button" class="kids" value="spmo" disabled>出陣桃</button>
+      <button type="button" class="kids" value="kamon" disabled>家紋</button>
+      <button type="button" class="nokids" value="oni" disabled>鬼</button>
+      <button type="button" class="nokids" value="momotaro" disabled>桃太郎</button>
+      <button type="button" class="kids" value="momochan" disabled>イラスト</button>
+      <button type="button" class="nokids" value="kanji" disabled>漢字</button>
+      <button type="button" class="kids ic" value="ichimatsu" disabled>出陣市松</button>
     </div>
   
     <div id="color">
-      <button type="button" id="blackBtn" class="noic" value="white">ホワイト</button>
-      <button type="button" id="redBtn" class="noic" value="red">レッド</button>
-      <button type="button" id="pinkBtn" class="noic" value="pink">ピンク</button>
-      <button type="button" id="pearlBtn" class="noic" value="pearl">パール</button>
-      <button type="button" id="goldBtn" class="noic" value="gold">ゴールド</button>
-      <button type="button" id="blackBtn" class="blk ichim" value="black" style="display:None">ブラック</button>
-      <button type="button" id="shopColor" class="ic ichim" value="shopColor">限定</button>
+      <button type="button" id="blackBtn" class="blk ichim" value="black" style="display: none;" disabled>ブラック</button>
+      <button type="button" id="blackBtn" class="noic noblk" value="white" disabled>ホワイト</button>
+      <button type="button" id="redBtn" class="noic noblk" value="red" disabled>レッド</button>
+      <button type="button" id="pinkBtn" class="noic noblk" value="pink" disabled>ピンク</button>
+      <button type="button" id="pearlBtn" class="noic noblk" value="pearl" disabled>パール</button>
+      <button type="button" id="goldBtn" class="noic noblk" value="gold" disabled>ゴールド</button>
+      <button type="button" id="shopColor" class="ic ichim noblk" value="shopColor" disabled>限定</button>
     </div>
   
     <div id="svgContainer" class="svgContainer">
